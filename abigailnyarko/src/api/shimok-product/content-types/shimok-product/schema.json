@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shimok_products",
+  "info": {
+    "singularName": "shimok-product",
+    "pluralName": "shimok-products",
+    "displayName": "ShimokProduct",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProductName": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "float"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Ingredients": {
+      "type": "text"
+    },
+    "Quantity": {
+      "type": "integer"
+    },
+    "Weight": {
+      "type": "float"
+    }
+  }
+}

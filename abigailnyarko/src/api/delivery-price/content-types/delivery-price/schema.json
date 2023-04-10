@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_prices",
+  "info": {
+    "singularName": "delivery-price",
+    "pluralName": "delivery-prices",
+    "displayName": "Delivery_Price",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Min_Weight": {
+      "type": "float"
+    },
+    "Max_Weight": {
+      "type": "float"
+    },
+    "Delivery_Price": {
+      "type": "float"
+    }
+  }
+}
