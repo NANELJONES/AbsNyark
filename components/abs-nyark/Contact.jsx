@@ -84,7 +84,7 @@ const Contact = () => {
         <p className='text-[2vw] md:text-[1vw] font-light text-center duration-300 tracking-[.3em] hover:tracking-[.6em] animate-pulse 2xl:text-[20px]   '>CONNECT WITH US</p>
         <div className='flex flex-col md:flex-row-reverse mt-[4vw]'>
             <div className='w-full h-[50vh]  md:w-1/2 md:flex md:h-auto relative ' >
-                <Image src={"/brand image.png"} className="object-cover" fill  unoptimized alt="image could not be found" />   
+                <Image src={"/brand image.png"} className="object-cover" layout='fill'  unoptimized alt="image could not be found" />   
             </div>
         
             <form className= ' w-full  md:w-1/2 flex flex-col gap-[4vw] md:gap-[1vw] 2xl:gap-[30px] '>
@@ -159,7 +159,7 @@ const Contact = () => {
                                      <FontAwesomeIcon icon={faEnvelope}  size ="1x" />
                                     <p className='text-[2vw] md:text-[1vw] '>absnyark@gmail.com </p>
                                       </span>
-                            </Link>  
+  </Link>  
 
                             <Link href={"/"}>
                                      <span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' >

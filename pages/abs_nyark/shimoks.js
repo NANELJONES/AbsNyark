@@ -36,7 +36,7 @@ const shimoks = () => {
     
     <div className='font-[Fraunces] text-white relative  '>
     <Layout>
-      <Shimoks_Nav/>
+     <Shimoks_Nav/> 
       
     
       
@@ -46,7 +46,7 @@ const shimoks = () => {
         <div className='flex flex-col items-center'>
 
           <div className='relative  w-[50%] min-h-[100px] h-[20vw] max-h-[500px]'>
-              <Image src={"/shimok_logo.svg"} fill className='object-contain' />
+              <Image src={"/shimok_logo.svg"} layout='fill' className='object-contain' />
     
           </div>
           
@@ -54,7 +54,7 @@ const shimoks = () => {
             <p className='text-center text-sm md:text-xl w-[70%] md:w-[40%] font-thin'>Shimoks is our authentic Ghanaian Hot sauces. Our sauces are inspired by love for our Ghanaian cultural foods and spices. Shimoks Hot sauces each have their own unique tastes but complement each other. However, the choice is yours. Get a taste of Ghana.</p>
             <br/>
           
-            <Link href="/"> <button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw]  md:text-[1.5vw] xl:text-[1.2vw] 2xl:text-[20px]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> PURCHASE {">>"} </button></Link>  
+            <button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw]  md:text-[1.5vw] xl:text-[1.2vw] 2xl:text-[20px]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> PURCHASE {">>"} </button>
 
 
 
@@ -86,7 +86,7 @@ const shimoks = () => {
             </p>
 
             <br/>
-            <Link href="/"> <button className='font-[Fraunces] font-thin text-[2vw] bg-[#42A880] text-white px-[3vw] py-[1vw] md:text-[1.5vw] 2xl:text-[1vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[20px]   '> PURCHASE {">>"} </button></Link>  
+            <Link href="/"><button className='font-[Fraunces] font-thin text-[2vw] bg-[#42A880] text-white px-[3vw] py-[1vw] md:text-[1.5vw] 2xl:text-[1vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[20px]   '>PURCHASE {">>"}</button></Link>  
 
 
 

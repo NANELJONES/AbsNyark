@@ -15,43 +15,13 @@ const Footer = () => {
                 <br/>
                 <br/>
                 <div className=' w-full flex-wrap  flex items-center justify-around wrap gap-[2vw] 2xl:w-[70%] '>
-                            <Link href={"/"}>
-                                     <span className='flex items-center  border-l-[5px] gap-[10px] px-[1vw]  ' >
-                                     <FontAwesomeIcon icon={faEnvelope}  size ="1x" />
-                                    <p className='text-[2vw] md:text-[1vw] '>absnyark@gmail.com </p>
-                                      </span>
-                            </Link>  
+                            <Link href={"/"}><span className='flex items-center  border-l-[5px] gap-[10px] px-[1vw]  ' ><FontAwesomeIcon icon={faEnvelope}  size ="1x" /><p className='text-[2vw] md:text-[1vw] '>absnyark@gmail.com </p></span></Link>  
 
-                            <Link href={"/"}>
-                                     <span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' >
-                                     <FontAwesomeIcon icon={faPhone} size='1x' />
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
-                                      </span>        
-                            </Link> 
+                            <Link href={"/"}><span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' ><FontAwesomeIcon icon={faPhone} size='1x' /><p className='text-[2vw] md:text-[1vw] '>facebok_handle </p></span></Link> 
 
-                            <Link href={"/"}>
-                                     <span className='flex items-center border-l-[5px] gap-[10px] px-[1vw]  ' >
-                                     <FontAwesomeIcon icon={faFacebook} size='1x' />
-                                  
-        
-                
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
-                                      </span>
-                            
-                            
-                            </Link> 
+                            <Link href={"/"}><span className='flex items-center border-l-[5px] gap-[10px] px-[1vw]  ' ><FontAwesomeIcon icon={faFacebook} size='1x' /><p className='text-[2vw] md:text-[1vw] '>facebok_handle </p></span></Link> 
 
-                            <Link href={"/"}>
-                                     <span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' >
-                                     <FontAwesomeIcon icon={faInstagramSquare} size='1x' />
-                                  
-        
-                
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
-                                      </span>
-                            
-                            
-                            </Link> 
+                            <Link href={"/"}><span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' ><FontAwesomeIcon icon={faInstagramSquare} size='1x' /><p className='text-[2vw] md:text-[1vw] '>facebok_handle </p></span></Link> 
                          </div>
     </div>
   )

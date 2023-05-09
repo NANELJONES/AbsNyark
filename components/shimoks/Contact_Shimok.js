@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { faBars, faClose} from '@fortawesome/free-solid-svg-icons';
@@ -81,7 +82,7 @@ const Contact_Shimok = () => {
      
         <div className='flex flex-col md:flex-row mt-[4vw] justify-between'>
             <div className='w-full h-[50vh]  md:w-[30%] md:flex md:h-auto  relative ' >
-                <Image src={"/contact_us.png"} className="object-contain" fill  unoptimized alt="image could not be found" />   
+                <Image src={"/contact_us.png"} className="object-contain" layout='fill'  unoptimized alt="image could not be found" />   
             </div>
         
             <form className= ' w-full  md:w-[50%] flex flex-col gap-[4vw] md:gap-[1vw] 2xl:gap-[30px] '>

@@ -38,7 +38,7 @@ const aboutUs = () => {
                     </div>
 
                 <div className='w-1/5 h-[30vw]   md:w-1/3    relative   '>
-                  <Image src={"/aboutus.png"}  fill unoptimized className="object-contain mx-auto  my-auto"></Image>
+                  <Image src={"/aboutus.png"}  layout='fill' unoptimized className="object-contain mx-auto  my-auto"></Image>
                   
                 </div>
                 
@@ -83,7 +83,7 @@ const aboutUs = () => {
               </div>
 
             <div className='w-[20%] h-[30vw]   md:w-1/3  flex items-center  relative   '>
-                <Image src={"/mission.png"}  fill unoptimized className="object-contain mx-auto  my-auto"></Image>
+                <Image src={"/mission.png"}  layout='fill' unoptimized className="object-contain mx-auto  my-auto"></Image>
 
             </div>
 

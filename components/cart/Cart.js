@@ -1,50 +1,26 @@
 import React from 'react'
-import { useStateContext } from '../../context/StateContext'
 import Link from 'next/link'
+import { useStateContext } from '../../context/StateContext';
+import { useEffect } from 'react';
+
 
 const Cart = () => {
-  const temp_cart_items = [
-    {
-    ProductName:"Black shitor",
-    Price:34,
-    Quantity:3,
-    Total: 102,
-  },
-  {
-    ProductName:"Black shitor",
-    Price:34,
-    Quantity:3,
-    Total: 102,
-  },
-  {
-    ProductName:"Black shitor",
-    Price:34,
-    Quantity:3,
-    Total: 102,
-  },
-  {
-    ProductName:"Black shitor",
-    Price:34,
-    Quantity:3,
-    Total: 102,
-  },
+
+
+const {totalPrice, totalQuantities, cartItems, setshowCart, onRemove, handleUpdate, setcartItems} = useStateContext()
 
 
 
-]
+    
 
-
-const {totalPrice, totalQuantities, cartItems, setshowCart, onRemove, handleUpdate} = useStateContext()
-
- 
 return (
-    <div className='absolute shadow w-[70vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px]  max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
+    <div className='absolute shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px]  max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
       <p className='absolute right-[20px] cursor-pointer text-[orange] text-[1.3em] rounded-full' onClick={()=>{setshowCart(false)}}>x</p>
       <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/> Cart  Items</h1>
       <p>Total Items: {totalQuantities}</p>
       <br/>
       <div className='flex flex-col gap-[1vw]  max-h-[500px]'>
-      {cartItems.length != 0 ? cartItems.map((each_item, index)=>{
+      { cartItems.length != 0 ? cartItems.map((each_item, index)=>{
        return <div className='flex px-[10px] items-center justify-around w-full  bg-[#373737] py-[2vw] md:py-[0.8vw] '  key={index}>
             <button onClick={()=>{onRemove(each_item)}} className='bg-[white] rounded-full leading-[0px] text-[black] p-[0px] w-[20px] h-[20px]'  >x</button>
            <img src={process.env.NEXT_PUBLIC_DEFAULT_URL + each_item.Image.data.attributes.url} className='w-[15%] border rounded-[10px] bg-[#322C2C] 2xl:w-[10%]'></img>

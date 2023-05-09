@@ -43,33 +43,33 @@ const Shimoks_Nav = () => {
                           {/* <img
                           className='h-10 inline'
                           src={small_logo.src}/> */}
-                        <Link href={"/"}> <h1 className='text-[0.8em] font-[Fraunces] font-bold text-white'>AbysNyark</h1></Link> 
+                        <Link href={"/"}><h1 className='text-[0.8em] font-[Fraunces] font-bold text-white'>AbysNyark</h1></Link> 
               </div>
 
               <ul   className='w-full flex flex-col justify-evenly items-center  flex-wrap gap-10  md:flex-row md:w-full    md:gap-5 md:w-[70%] 2xl:w-3/6 duration-300'>
             
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                    <Link href={"/"}> <p className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Shimoks</p></Link> 
+                    <Link href={"/"}><p className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Shimoks</p></Link> 
                   </li>
 
-                  <li className='w-auto flex items-center hover:border-l-[1vw] hover:border-[orange] duration-300' >
+                  <li className='w-auto flex items-center hover:border-l-[1vw] hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart)}}>
                   
                        <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
                       <FontAwesomeIcon icon={faCartShopping} size='' />
-                        <p className='bg-[white] text-[black] h-[unset]  text-center rounded-[10vw]  w-[20px] h-[20px]  '>{totalQuantities}</p>
+                        <p suppressHydrationWarning={true} className='bg-[white] text-[black] h-[unset]  text-center rounded-[10vw]  w-[20px] h-[20px]  '>{totalQuantities}</p>
                  
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={"/abs_nyark/shimoks/#about_us"} scroll={true}>  <p className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>About Us</p></Link>
+                  <Link href={"/abs_nyark/shimoks/#about_us"} scroll={true}><p className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>About Us</p></Link>
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={"/abs_nyark/shimoks/#contact_us"} scroll={true}>  <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Contact Us </p></Link>
+                  <Link href={"/abs_nyark/shimoks/#contact_us"} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Contact Us</p></Link>
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={"/"} scroll={true}> <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
+                  <Link href={"/"} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
                   </li>
 
 

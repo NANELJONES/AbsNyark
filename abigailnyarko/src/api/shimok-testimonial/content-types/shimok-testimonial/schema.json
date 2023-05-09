@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shimok_testimonials",
+  "info": {
+    "singularName": "shimok-testimonial",
+    "pluralName": "shimok-testimonials",
+    "displayName": "ShimokTestimonial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Testimonial": {
+      "type": "text"
+    }
+  }
+}

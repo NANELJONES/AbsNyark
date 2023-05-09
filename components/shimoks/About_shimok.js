@@ -22,7 +22,7 @@ const About_shimok = () => {
          
         </div>
         <div className='relative w-full md:w-1/2 md:right-[8vw]  2xl:right-[140px]  '>
-            <Image src={"/circle_images.png"} fill unoptimized className='object-contain'/>
+            <Image src={"/circle_images.png"} layout='fill' unoptimized className='object-contain'/>
             
         </div>
 

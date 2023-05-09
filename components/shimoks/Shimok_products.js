@@ -28,6 +28,8 @@ const Shimok_products = () => {
                         Authorization:"bearer " + process.env.NEXT_PUBLIC_SHIMOK_API_TOKEN,
                     },
                 });
+
+                //console.log(res)
              
                 set_products(res.data.data)
             }catch(err){
@@ -102,7 +104,7 @@ const Shimok_products = () => {
                   
                      <img src={process.env.NEXT_PUBLIC_DEFAULT_URL+each_product.attributes?.Image.data.attributes.url} className="w-[50%] md:w-[60%]" alt=""></img>
                     <p className='text-[4vw] md:text-[2vw] w-[70%]'>{each_product?.attributes.ProductName}</p>
-                    <p>${each_product?.attributes.Price} € </p>
+                    <p className='text-[1.5em]'>${each_product?.attributes.Price} € </p>
 
                     <button className='text-[orange]' onClick={()=>{setshowMore(index), set_selected(!selected)}}> {showMore ? "Read Less " : "Read More"}</button>
                     <br/>
@@ -126,7 +128,7 @@ const Shimok_products = () => {
                     </div>
                     <br/>
 
-                    <button className='font-[Fraunces] font-thin text-[3vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[20px]    '  onClick={()=>{onAdd(each_product.attributes)}} > ADD TO CART {">>"} </button> 
+                    <button className='font-[Fraunces] font-thin text-[2vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[15px]    '  onClick={()=>{onAdd(each_product.attributes)}} > ADD TO CART {">>"} </button> 
 
 
 
