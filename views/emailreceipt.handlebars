@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>ABS NYARK RECEIPT EMAIL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+           
+            text-align: center;
+            font-family: "Fraunces";
+        }
+
+        p, h1, h2, h3,h4, h5,h6{
+            
+            font-family: "Fraunces";
+
+        }
+
+        section{
+            width:80vw;
+            
+            max-width: 800px;
+            margin: 0px auto;
+            text-align: center;
+            
+        }
+       table{
+        width: 100%;
+        
+       } 
+     td {
+        padding:20px 0px 20px 0px;
+            border-bottom:1px solid black;
+        }
+
+        img{
+            width: 50px;
+
+            border-radius: 10px;
+        }
+
+        #customer_details  th{
+            width: 50%;
+
+        }
+
+        div.extra{
+         display: flex; 
+         justify-content: space-between;
+        }
+
+        
+        
+        
+    </style>
+</head>
+<body>
+    <section  >
+        <div>
+                <h2>THANK YOU FOR ORDERING FROM</h2>
+                <h2>SHIMOKS</h2>
+                <br/>
+             
+                <h1>ORDER</h1>
+                <h1>CONFIRMED</h1>
+      </div>
+      <div>
+        <h4 style="text-align: left;">CART ITEMS</h4>
+        <table class="top_table">
+            <tr style="text-align: center;">
+                <th style="text-align: left;"  >PRODUCT INFO</td>
+                <th>QUANTITY</td>
+                <th>COST</td>
+                
+              </tr>
+
+
+
+              {{{cart_orders}}}
+
+
+
+
+
+        </table>
+
+
+        <!-- sutotal -->
+        <div style="display: flex; justify-content: space-between; border-top: 5px solid black;">
+            <p>SUBTOTAL: </p>
+            <p>{{subtotal}} £</p>
+        </div>
+
+        <br/>
+        <!-- Additional Cost -->
+        <div>
+                <h4 style="text-align: left;">ADDITIONAL COST</h4>
+                <div  class="extra">
+                    <p>DELIVERY:</p>
+                    <p>{{delivery_cost}} £ </p>
+                </div>
+
+
+                <div class="extra">
+                    <p>TAXES:</p>
+                    <p>{{tax}} £ </p>
+                </div>
+
+                
+                <div class="extra" style="display: flex; justify-content: space-between; border-top: 5px solid black;">
+                    <h2>TOTAL:</h2>
+                    <h2 style="font-size:large;">{{full_cost}}£ </h2>
+                </div>
+
+        </div>
+
+        <br/>
+        <br>
+
+        <!-- customer details -->
+
+
+        <div id="customer_details">
+            <h4 style="text-align: left;">CUSTOMER DETAILS</h4>
+            <table >
+                <tr style="text-align: left;">
+                    <th>
+                        <p>NAME:</p>
+                        <p>{{c_name}}</p>
+                        
+                    </th>
+
+                    <th>
+                        <p>EMAIL:</p>
+                        <p>{{c_email}}</p>
+                        
+                    </th>
+
+                  </tr>
+    
+    
+    
+             
+    
+    
+    
+    
+            </table>
+
+            <table>
+                <tr style="text-align: left;">
+                    <th>
+                        <p>MOBILE:</p>
+                        <p>{{c_mobile}}</p>
+                        
+                    </th>
+
+                    <th>
+                        <p>ORDER CODE:</p>
+                        <p>{{c_order_code}}</p>
+                        
+                    </th>
+
+                  </tr>
+    
+    
+    
+             
+    
+    
+    
+    
+            </table>
+
+            <table>
+                <tr style="text-align: left;">
+                    <th>
+                        <p>ADDRESSLLINE 1:</p>
+                        <p>{{c_address_1}}</p>
+                        
+                    </th>
+
+                    <th>
+                        <p>ADDRESSLINE 2:</p>
+                        <p>{{c_address_1}}</p>
+                        
+                    </th>
+
+                  </tr>
+    
+    
+    
+             
+    
+    
+    
+    
+            </table>
+
+            <table>
+                <tr style="text-align: left;">
+                    <th>
+                        <p>COUNTRY:</p>
+                        <p>{{c_country}}</p>
+                        
+                    </th>
+
+                    <th>
+                        <p>POSTAL:</p>
+                        <p>{{c_postal}}</p>
+                        
+                    </th>
+
+                  </tr>
+    
+    
+    
+             
+    
+    
+    
+    
+            </table>
+
+            <table>
+                <tr style="text-align: left;">
+                    <th>
+                        <p>ORDER DATE:</p>
+                        <p>{{c_order_date}}</p>
+                        
+                    </th>
+
+                    <th>
+                        <p>DELIVERY DATE:</p>
+                        <p>BETWEEN 3-5 BUSINESS DAYS</p>
+                        
+                    </th>
+
+                  </tr>
+    
+    
+    
+             
+    
+    
+    
+    
+            </table>
+     
+     
+     
+     
+     
+        </div>
+
+
+        
+
+
+
+
+
+      </div>
+
+
+
+              
+    </section>
+</body>
+</html>

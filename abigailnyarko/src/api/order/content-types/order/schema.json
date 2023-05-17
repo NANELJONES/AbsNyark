@@ -39,26 +39,37 @@
     "Cart_Items": {
       "type": "text"
     },
-    "Total_Quantities": {
-      "type": "string"
-    },
-    "Total_Cost": {
-      "type": "string"
-    },
-    "Delivery_Fee": {
-      "type": "string"
-    },
-    "Total_Weight": {
+    "Store": {
       "type": "string"
     },
     "Aggregate_Product_Cost": {
-      "type": "string"
+      "type": "float"
+    },
+    "Delivery_Fee": {
+      "type": "float"
+    },
+    "Total_Cost": {
+      "type": "float"
+    },
+    "Total_Quantities": {
+      "type": "float"
+    },
+    "Total_Weight": {
+      "type": "float"
     },
     "Order_Date": {
-      "type": "string"
+      "type": "datetime"
     },
-    "Store": {
-      "type": "string"
+    "Delivery_Date": {
+      "type": "date"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Order Failed,",
+        "Order In Progress",
+        "Order Completed"
+      ]
     }
   }
 }

@@ -5,20 +5,37 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
    
-
+    
     try {
         const params ={
             submit_type:"pay",
             mode:"payment",
             payment_method_types:["card"],
             billing_address_collection:"auto",
-            
+           
+            // automatic_tax: {
+            //   enabled: true,
+            // },
+    
+ 
+
             shipping_options:[
               {
                 shipping_rate_data:{
                   type:"fixed_amount",
                   fixed_amount:{amount:req.body.delivery_fee * 100, currency:"eur"},
-                  display_name:"Delivery Cost"
+                  display_name:"Delivery Cost",
+                  delivery_estimate:{
+                    minimum:{
+                      unit:"business_day",
+                      value:3
+                    },
+                    maximum:{
+                      unit:"business_day",
+                      value:5
+                    }
+                  }
+
                 }
               }
             ],
@@ -44,8 +61,10 @@ export default async function handler(req, res) {
                 }
             }
             ),
+
+        
          
-            success_url: `${req.headers.origin}/?success=true`,
+            success_url: `${req.headers.origin}/success`,
             cancel_url: `${req.headers.origin}/?canceled=true`,
           }
 
@@ -55,7 +74,7 @@ export default async function handler(req, res) {
       
       
       res.status(200).json(session); 
-      console.log(req.body)
+     
       
     } catch (err) {
  

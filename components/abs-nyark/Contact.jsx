@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagramSquare, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 const Contact = () => {
-    const [more_info, set_more_into] = useState(false);
+
    
-    const [contact, setContact] = useState({user_name:"", user_email:"", user_message:"" , user_service:"", user_extra_info:""})
+    const [contact, setContact] = useState({user_name:"", user_email:"", user_message:"" })
     
     const resetter =()=>{
-        setContact({...contact, user_name:"", user_email:"", user_message:"", user_service:"", user_extra_info:""})
+        setContact({...contact, user_name:"", user_email:"", user_message:""})
 
     }
 
@@ -29,15 +29,15 @@ const Contact = () => {
     const handleSubmit =(event)=>{
         var regExp  = new RegExp(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
        
-        console.log(contact.user_extra_info)
         
-        if(!contact.user_name  || !contact.user_email || !contact.user_service || !contact.user_message){
+        
+        if(!contact.user_name  || !contact.user_email || !contact.user_message){
             
             alert("Please Fill All Fields")
             event.preventDefault()
         }else{
             if(regExp.test(contact.user_email)===true){
-                fetch('api/contact',{
+                fetch('/api/contact',{
                     method: "POST",
                     headers:{
                         "Accept" : "application/json , text/plain, */*",
@@ -149,44 +149,31 @@ const Contact = () => {
                         id="send_btn" 
                         type="submit"      
                         onClick={(e)=>{
-                            // handleSubmit(e)
+                            handleSubmit(e)
                         
                         }} className='rounded-full text-[2.5vw] border w-2/5 p-[2.5vw] text-white bg-background hover:bg-[orange] duration-300 hover:border-0 md:text-[1vw] md:p-[1.5vw] 2xl:text-[12px] 2xl:p-[20px]   '> SEND MESSAGE</button>
                         
-                        <div className=' w-full flex-wrap  flex items-start wrap gap-[2vw] '>
-                            <Link href={"/"}>
+                        <div className=' w-full flex-wrap  flex items-start wrap gap-[2vw]  justify-around '>
+                           
                                      <span className='flex items-center  border-l-[5px] gap-[10px] px-[1vw]  ' >
-                                     <FontAwesomeIcon icon={faEnvelope}  size ="1x" />
-                                    <p className='text-[2vw] md:text-[1vw] '>absnyark@gmail.com </p>
+                                          <FontAwesomeIcon icon={faEnvelope}  size ="1x" />
+                                           <p className='text-[3vw] md:text-[1.2vw] '>absnyarko@gmail.com </p>
                                       </span>
-  </Link>  
 
-                            <Link href={"/"}>
                                      <span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' >
-                                     <FontAwesomeIcon icon={faPhone} size='1x' />
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
+                                           <FontAwesomeIcon icon={faPhone} size='1x' />
+                                           <p className='text-[3vw] md:text-[1.2vw] '>07713480241 </p>
                                       </span>        
-                            </Link> 
+                         
 
-                            <Link href={"/"}>
-                                     <span className='flex items-center border-l-[5px] gap-[10px] px-[1vw]  ' >
-                                     <FontAwesomeIcon icon={faFacebook} size='1x' />
-                                  
-        
-                
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
-                                      </span>
-                            
-                            
-                            </Link> 
 
-                            <Link href={"/"}>
+                            <Link href={"https://www.instagram.com/abs_nyark/"}>
                                      <span className='flex items-center border-l-[5px] gap-[10px] px-[2vw]  ' >
-                                     <FontAwesomeIcon icon={faInstagramSquare} size='1x' />
+                                     <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
                                   
         
                 
-                                    <p className='text-[2vw] md:text-[1vw] '>facebok_handle </p>
+                                    <p className='text-[3vw] md:text-[1.2vw] '>abs_nyark</p>
                                       </span>
                             
                             

@@ -21,11 +21,9 @@ export const StateContext = ({children})=>{
         cartFromLocalStorage =JSON.parse(localStorage.getItem("cart") || "[]" )
         total_quant_from_lc =JSON.parse(localStorage.getItem("total_quant") || "0")
         delivery_cost_from_lc =JSON.parse(localStorage.getItem("deliv_cost") || "0")
-        delivery_details_from_lc =JSON.parse(localStorage.getItem("deliv_details") || "[]")
+        delivery_details_from_lc =JSON.parse(localStorage.getItem("deliv_details") || "{}")
         total_price_from_lc =JSON.parse(localStorage.getItem("tot_price") || "0")
-         full_price_from_lc = JSON.parse(localStorage.getItem("ful_price") || "0")
-        
-   
+        full_price_from_lc = JSON.parse(localStorage.getItem("ful_price") || "0")
 
      }
 
@@ -34,7 +32,7 @@ export const StateContext = ({children})=>{
     const [showCart, setshowCart] = useState(false);
     const [cartItems, setcartItems] = useState([]);
     const [totalPrice, settotalPrice] = useState(0);
-    const [delivery_details, setDeliveryDetails] = useState({customer_name:"", customer_email:"", customer_mobile:"" , customer_code:"", customer_addresslines_1:"",customer_addresslines_2:"",customer_country:"",customer_postal:""})
+    const [delivery_details, setDeliveryDetails] = useState({customer_name:"", customer_email:"", customer_mobile:"" , customer_order_code:"", customer_addresslines_1:"",customer_addresslines_2:"",customer_country:"",customer_postal:"", order_date:"",  delivery_date:"" , status:"Order In Progress"})
     const [totalQuantities, settotalQuantities] = useState(0);
     const [qty, setqty] = useState(1);
     const [delivery_cost, setdelivery_cost] = useState(0)
@@ -72,6 +70,8 @@ export const StateContext = ({children})=>{
      setDeliveryDetails(delivery_details_from_lc)
      settotalPrice(total_price_from_lc)
      setFullPrice(full_price_from_lc)
+
+    
     
     
     }, [])
@@ -126,11 +126,12 @@ const full_price_calculator =()=>{
         localStorage.setItem("ful_price", JSON.stringify(full_price))
         full_price_calculator()
         deliveryFunction()
-        console.log(total_weight)
+        
+      
         
  
 
-}, [cartItems, totalQuantities, delivery_cost, totalPrice, total_weight, full_price])
+}, [cartItems, totalQuantities, delivery_cost, totalPrice, total_weight, full_price, delivery_details])
 
 
 
@@ -223,7 +224,7 @@ const full_price_calculator =()=>{
 
 
     return(
-        <Context.Provider value={{showCart,full_price, handleUpdate, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost}}>
+        <Context.Provider value={{showCart,full_price, handleUpdate, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
             {children}
         </Context.Provider>
     ) 

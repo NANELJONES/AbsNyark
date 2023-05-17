@@ -33,3 +33,7 @@ a {
     background: rgb(15, 63, 34);
   }
 }
+
+nav p {
+  cursor: pointer;
+}

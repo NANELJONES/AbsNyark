@@ -58,8 +58,8 @@ const Nav = () => {
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300 flex items-center' onClick={()=> {setshowCart(!showCart)}} >
                   
                      <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
-                      <FontAwesomeIcon icon={faCartShopping} size='' />
-                          <p suppressHydrationWarning={true} className='bg-[white] text-[black] h-[unset] w-[unset]  text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
+                      <FontAwesomeIcon icon={faCartShopping} size='sm' />
+                          <p className='bg-[white] text-[black] h-[unset] w-[unset]  text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
                  
                   </li>
 
@@ -72,7 +72,7 @@ const Nav = () => {
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={"/abs_nyark/contactUs"} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
+                  <Link href={`${process.env.NEXT_PUBLIC_DEFAULT_URL}/admin`} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
                   </li>
 
 

@@ -78,9 +78,9 @@ const Contact_Shimok = () => {
     
     
 
-    <div className='text-white   font-[Fraunces]  font-thin w-full bg-[#2D235C] px-[3vw] py-[3vw] mt-[8vw] 2xl:mt-[40px] border-t-[5vw] 2xl:border-t-[80px]   border-[orange] ' >
+    <div className='text-white   font-[Fraunces]  font-thin w-full bg-[#2D235C] px-[3vw] py-[3vw] mt-[8vw] 2xl:mt-[40px] border-t-[5vw] 2xl:border-t-[80px]   border-[orange] 2xl:py-[60px] ' >
      
-        <div className='flex flex-col md:flex-row mt-[4vw] justify-between'>
+        <div className='flex flex-col md:flex-row mt-[4vw] 2xl:mt-[60px] justify-between'>
             <div className='w-full h-[50vh]  md:w-[30%] md:flex md:h-auto  relative ' >
                 <Image src={"/contact_us.png"} className="object-contain" layout='fill'  unoptimized alt="image could not be found" />   
             </div>

@@ -35,7 +35,7 @@ export default function Home() {
        
         <br/>
       
-         <Link href="/"><button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw] md:text-[0.8vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> HIRE US {">>"}</button></Link>  
+         <Link href="/abs_nyark/contactUs"><button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw] md:text-[0.8vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> HIRE US {">>"}</button></Link>  
         </div>
 
 

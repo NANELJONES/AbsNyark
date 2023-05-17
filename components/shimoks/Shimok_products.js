@@ -103,7 +103,7 @@ const Shimok_products = () => {
                 return<div className='md:w-[30vw] text-center  flex flex-col items-center self-start ' key={index}> 
                   
                      <img src={process.env.NEXT_PUBLIC_DEFAULT_URL+each_product.attributes?.Image.data.attributes.url} className="w-[50%] md:w-[60%]" alt=""></img>
-                    <p className='text-[4vw] md:text-[2vw] w-[70%]'>{each_product?.attributes.ProductName}</p>
+                    <p className='text-[4vw] md:text-[2vw] w-[70%] 2xl:text-[2em]'>{each_product?.attributes.ProductName}</p>
                     <p className='text-[1.5em]'>${each_product?.attributes.Price} € </p>
 
                     <button className='text-[orange]' onClick={()=>{setshowMore(index), set_selected(!selected)}}> {showMore ? "Read Less " : "Read More"}</button>
