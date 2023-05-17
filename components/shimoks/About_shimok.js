@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 const About_shimok = () => {
   return (
     <div className='px-[2vw] flex flex-col md:flex-row mt-[10vw] 2xl:mt-[120px] '>
