@@ -1,0 +1,38 @@
+Internal Database Url = postgres://admin:KvCezkJR8Jb7FgC6evXPoAGoI1b3AIPI@dpg-chjron0rddlddrhlt8gg-a/abigailnyarko
+
+external database url  = postgres://admin:KvCezkJR8Jb7FgC6evXPoAGoI1b3AIPI@dpg-chjron0rddlddrhlt8gg-a.oregon-postgres.render.com/abigailnyarko
+
+
+PSQL commmand = postgres://admin:KvCezkJR8Jb7FgC6evXPoAGoI1b3AIPI@dpg-chjron0rddlddrhlt8gg-a.oregon-postgres.render.com/abigailnyarko
+
+
+
+
+
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS=k55ZTnh8zpp+RgfKGFH+ow==,emWScOj6oRLuo9GpElohpQ==,NcAhXOO3tLj/U6c8cc22qw==,JfLEaKTSdyJZsrLu2pQKhg==
+API_TOKEN_SALT=tKsFy7bb9BVQh4DD9MKROw==
+ADMIN_JWT_SECRET=8zcsu6zsd3f6B0Y1euqzTA==
+TRANSFER_TOKEN_SALT=u6+oGpVtPXMdxmyKuaxKuw==
+# Database
+DATABASE_CLIENT1=mysql
+DATABASE_HOST=127.0.0.1
+DATABASE_PORT=3306
+DATABASE_NAME=absnyark
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=admin
+DATABASE_SSL=false
+JWT_SECRET=en+t18xlQnNT8dOmzl9x4g==
+
+
+
+CLOUDINARY_NAME = dvpbxzktm
+CLOUDINARY_KEY = 581658434511332
+CLOUDINARY_SECRET = nImdsZ-N_k6OhuYdd_lIPwRv1eI
+DATABASE_CLIENT = postgres
+DATABASE_HOST=postgres://admin:KvCezkJR8Jb7FgC6evXPoAGoI1b3AIPI@dpg-chjron0rddlddrhlt8gg-a.oregon-postgres.render.com/abigailnyarko
+DATABASE_PORT=5432
+DATABASE_NAME= abigailnyarko
+DATABASE_USERNAME=admin
+DATABASE_PASSWORD= KvCezkJR8Jb7FgC6evXPoAGoI1b3AIPI
