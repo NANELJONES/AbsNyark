@@ -72,7 +72,7 @@ const Nav = () => {
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={`${process.env.NEXT_PUBLIC_API_URL}`} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
+                  <Link href={`${process.env.NEXT_PUBLIC_DEFAULT_URL}/admin`} scroll={true}><p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Login</p></Link>
                   </li>
 
 
