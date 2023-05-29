@@ -52,7 +52,7 @@ useEffect(() => {
                    
                     <br/>
                    
-                <img src = {process.env.NEXT_PUBLIC_DEFAULT_URL+testimonial.attributes?.Picture.data.attributes.url}    alt={"/User-avatar.svg"}   className="w-[90px] h-[90px] rounded-full border-[2px] border-[white] object-cover "/>
+                <img src = {testimonial.attributes?.Picture.data.attributes.url}    alt={"/User-avatar.svg"}   className="w-[90px] h-[90px] rounded-full border-[2px] border-[white] object-cover "/>
                   
                     <p className='italic'>{testimonial?.attributes.Name}</p>
                     <br/>

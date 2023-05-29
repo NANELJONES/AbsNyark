@@ -23,7 +23,7 @@ return (
       { cartItems.length != 0 ? cartItems.map((each_item, index)=>{
        return <div className='flex px-[10px] items-center justify-around w-full  bg-[#373737] py-[2vw] md:py-[0.8vw] '  key={index}>
             <button onClick={()=>{onRemove(each_item)}} className='bg-[white] rounded-full leading-[0px] text-[black] p-[0px] w-[20px] h-[20px]'  >x</button>
-           <img src={process.env.NEXT_PUBLIC_DEFAULT_URL + each_item.Image.data.attributes.url} className='w-[15%] border rounded-[10px] bg-[#322C2C] 2xl:w-[10%]'></img>
+           <img src={each_item.Image.data.attributes.url} className='w-[15%] border rounded-[10px] bg-[#322C2C] 2xl:w-[10%]'></img>
             <div className='w-auto '>
               <p className=' text-[2.5vw] w-[80%] md:text-[2vw] lg:text-[1.3vw] 2xl:text-[20px] font-regular leading-[90%] ' >{each_item.ProductName}</p>
               <p className='w-[30%] font-thin italic '>€ {each_item.Price} </p>

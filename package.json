@@ -22,6 +22,7 @@
     "nodemailer-express-handlebars": "^6.1.0",
     "pg": "^8.11.0",
     "pg-connection-string": "^2.6.0",
+    "railway": "^2.0.17",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-toastify": "^9.1.2",

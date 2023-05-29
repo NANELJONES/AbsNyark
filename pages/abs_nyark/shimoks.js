@@ -119,12 +119,12 @@ const shimoks = () => {
 
    
       <div id="products">
-          <Shimok_products/>
+           <Shimok_products/> 
      </div>
       <div id="about_us" className='w-full h-[1vw] bg-[orange] mt-[3vw] 2xl:mt-[40px] '> </div>
 
       <About_shimok/>
-      <Testimonials/>
+      {/* <Testimonials/> */}
         <div id="contact_us">
       <Contact_Shimok/>
       </div>

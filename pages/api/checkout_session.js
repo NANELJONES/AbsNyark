@@ -44,13 +44,14 @@ export default async function handler(req, res) {
             line_items: req.body.data.map((item)=> {
                 //const img = process.env.NEXT_PUBLIC_API_URL+item.attributes.Image.data.attributes.url
                
-              // const imgUrl = `${process.env.NEXT_PUBLIC_API_URL}${item.Image?.data?.attributes?.formats?.thumbnail?.url}`;
-                
+                 const imgUrl = `${item.Image?.data?.attributes?.url}`;
+
                 return {
                     price_data : {
                         currency: "eur",
                         product_data:{
                             name:item.ProductName,
+                            images: [imgUrl]
                            
                         },
                         unit_amount: item.Price * 100
