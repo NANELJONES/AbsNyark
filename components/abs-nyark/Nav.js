@@ -13,25 +13,25 @@ const Nav = () => {
 
 
   const {showCart, setshowCart, totalQuantities} =  useStateContext()
-//   useEffect(() => {
+  useEffect(() => {
 
-//     window.addEventListener("resize", ()=>{
+    window.addEventListener("resize", ()=>{
 
-//       if(window.innerWidth < 640){
-//         setmenu(false)
-//       }else{
-//         setmenu(true)
-//       }
-//     })
+      if(window.innerWidth < 640){
+        setmenu(false)
+      }else{
+        setmenu(true)
+      }
+    })
 
-//   }, [])
+  }, [])
   
-// useEffect(() => {
-//   if(menu & window.innerWidth < 640) {
-//     setmenu(false)
-//   }
+useEffect(() => {
+  if(menu & window.innerWidth < 640) {
+    setmenu(false)
+  }
 
-// }, [])
+}, [])
 
 
   return (
