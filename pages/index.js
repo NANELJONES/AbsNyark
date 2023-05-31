@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image';
-
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 
@@ -22,20 +22,40 @@ export default function Home() {
 
 
       <div className='w-4/5  h-auto mx-auto md:h-[auto] md:w-1/2 mx-auto  md:ml-[4vw] pt-[4vw] flex flex-col items-center md:items-baseline md:my-auto '>
-          <h1 className='text-center text-white text-[15vw]  md:text-[4vw]  font-[Serif] font-regular  md:text-left leading-[85%]'>Abs  </h1>
-          <h1 className=' text-white text-[19vw] md:text-[10vw]  leading-[85%]  font-[Serif] font-bold'> Nyark</h1>
+          <motion.h1
+          initial={{ opacity: 0, y:10 }}
+          whileInView={{ opacity: 1, y:0 }}
+          transition={{duration:1}}
          
-          <p className='font-[Fraunces] w-full text-center  font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[3vw] md:text-[1vw]   '>ABS NYARK is a company that was birthed from the love of Ghana and its rich
+          
+          className='text-center text-white text-[15vw]  md:text-[4vw]  font-[Serif] font-regular  md:text-left leading-[85%]'>Abs  </motion.h1>
+          <motion.h1 
+          initial={{ opacity: 0, y:10 }}
+          whileInView={{ opacity: 1, y:0 }}
+          transition={{duration:1, delay:0.5}}
+          
+          className=' text-white text-[19vw] md:text-[10vw]  leading-[85%]  font-[Serif] font-bold'> Nyark</motion.h1>
+         
+          < motion.p 
+          initial={{ opacity: 0, y:10 }}
+          whileInView={{ opacity: 1, y:0 }}
+          transition={{duration:1, delay:0.8}}
+          
+          className='font-[Fraunces] w-full text-center  font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[3vw] md:text-[1vw]   '>ABS NYARK is a company that was birthed from the love of Ghana and its rich
           culture, offering an umbrella where all entities can be reached through the eyes of
-          the motherland. </p>
+          the motherland. </motion.p>
 
           <br/>
 
-          <p className='font-[Fraunces] w-full text-center  font-thin md:text-left md:w-4/5 text-white text-[3vw] md:text-[1vw] '>We always want to bring the authenticity of Ghana, through food, art, education and opportunities.</p>
+          <motion.p
+          initial={{ opacity: 0, y:10 }}
+          whileInView={{ opacity: 1, y:0 }}
+          transition={{duration:1, delay:1}}
+          className='font-[Fraunces] w-full text-center  font-thin md:text-left md:w-4/5 text-white text-[3vw] md:text-[1vw] '>We always want to bring the authenticity of Ghana, through food, art, education and opportunities.</motion.p>
        
         <br/>
       
-         <Link href="/abs_nyark/contactUs"><button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw] md:text-[0.8vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> HIRE US {">>"}</button></Link>  
+         <Link href="/abs_nyark/contactUs"><button className='font-[Fraunces] font-thin text-[4vw] bg-[orange] text-white px-[3vw] py-[1vw] md:text-[0.8vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> HIRE US {">>"}</button></Link>  
         </div>
         <br/>
 

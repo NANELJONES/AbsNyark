@@ -8,6 +8,7 @@ import Contact_Shimok from '../../components/shimoks/Contact_Shimok'
 import Shimok_products from '../../components/shimoks/Shimok_products'
 import Footer from '../../components/shimoks/Footer'
 import Layout from "../../components/layout/Layout"
+import { motion } from "framer-motion"
 
 
 
@@ -45,13 +46,23 @@ const shimoks = () => {
           
         <div className='flex flex-col items-center'>
 
-          <div className='relative  w-[50%] min-h-[100px] h-[20vw] max-h-[500px]'>
+          <motion.div 
+          initial={{ opacity: 0,  y:50 }}
+          whileInView={{ opacity: 1, y:0}}
+          transition={{duration:2}}
+          
+          className='relative w-[80%] md:w-[50%] min-h-[200px] h-[20vw] max-h-[500px]'>
               <Image src={"/shimok_logo.svg"} layout='fill' className='object-contain' />
     
-          </div>
+          </motion.div>
           
 
-            <p className='text-center text-lg md:text-xl w-[70%] md:w-[40%] font-thin'>Shimoks is our authentic Ghanaian Hot sauces. Our sauces are inspired by love for our Ghanaian cultural foods and spices. Shimoks Hot sauces each have their own unique tastes but complement each other. However, the choice is yours. Get a taste of Ghana.</p>
+            <motion.p
+             initial={{ opacity: 0,  y:50 }}
+             whileInView={{ opacity: 1, y:0}}
+             transition={{duration:2, delay:0.5}}
+            
+            className='text-center text-lg md:text-xl w-[70%] md:w-[40%] font-thin'>Shimoks is our authentic Ghanaian Hot sauces. Our sauces are inspired by love for our Ghanaian cultural foods and spices. Shimoks Hot sauces each have their own unique tastes but complement each other. However, the choice is yours. Get a taste of Ghana.</motion.p>
             <br/>
           
             <Link href={"/abs_nyark/shimoks/#products"}><button className='font-[Fraunces] font-thin text-[3vw] bg-[orange] text-white px-[3vw] py-[1vw]  md:text-[1.5vw] xl:text-[1.2vw] 2xl:text-[20px]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> PURCHASE {">>"} </button></Link> 
@@ -63,7 +74,12 @@ const shimoks = () => {
       </div>
 
 
-      <div className='flex flex-col items-center  md:flex-row relative  '> 
+      < motion.div  initial={{ opacity: 0, y:40 }}
+        whileInView={{ opacity: 1, y:0 }}
+        transition={{duration:2}}
+       
+        
+       className='flex flex-col items-center  md:flex-row relative  '> 
 
              <img src={"/leaves.png"} className = "absolute w-[30%] right-[0px] top-[0px] animate-[wiggle1_4s_ease-in-out_infinite] "></img> 
             
@@ -94,7 +110,7 @@ const shimoks = () => {
 
 
 
-      </div>
+      </motion.div>
 
 
 
@@ -104,13 +120,18 @@ const shimoks = () => {
       <div className='flex flex-col gap-[10vw] md:gap-[1vw]  md:flex-row  items-center justify-around mt-[3vw] 2xl:mt-[40px]  '>
     
       {more_info.map((each_info, index)=>{
-          return <div key={index} className="mx-auto text-center text-[#4B4B4B] flex flex-col  self-start w-[50%]  md:w-[20%] h-full">
+          return <motion.div 
+          initial={{ opacity: 0, y:40 }}
+          whileInView={{ opacity: 1, y:0 }}
+          transition={{duration:2, delay:(index/10) + 0.6}}
+ 
+          key={index} className="mx-auto text-center text-[#4B4B4B] flex flex-col  self-start w-[50%]  md:w-[20%] h-full">
             <img src={each_info.image} className = "w-[100%] bg-orange  object-fit"/>
             <h1 className='font-bold'>{each_info.heading}</h1>
             <p className='font-thin'>{each_info.details}</p>
 
 
-          </div>
+          </motion.div>
         })}
 
           
@@ -121,9 +142,14 @@ const shimoks = () => {
       <div id="products">
            <Shimok_products/> 
      </div>
-      <div id="about_us" className='w-full h-[1vw] bg-[orange] mt-[3vw] 2xl:mt-[40px] '> </div>
+      <div id="about_us" 
+      
+      
+      className='w-full h-[1vw] bg-[orange] mt-[3vw] 2xl:mt-[40px] '> </div>
 
       <About_shimok/>
+
+
       <Testimonials/> 
         <div id="contact_us">
       <Contact_Shimok/>

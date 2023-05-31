@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react';
 import { useStateContext } from '../../context/StateContext';
 import axios from 'axios';
+import { motion } from "framer-motion"
 const Shimok_products = () => {
 
     
@@ -100,7 +101,13 @@ const Shimok_products = () => {
         <h1 className='text-[#659B5E] font-[Serif] text-center text-[8vw] md:text-[4vw] mt-[10vw] md:mt-[3vw]'>PRODUCTS</h1>
         <div className='flex font-[Fraunces]   flex-wrap items-center gap-[1vw] justify-center '>
             {products.map((each_product, index)=>{
-                return<div className='md:w-[30vw] text-center  flex flex-col items-center self-start ' key={index}> 
+                return<motion.div 
+                initial={{ opacity: 0, y:40 }}
+                whileInView={{ opacity: 1, y:0 }}
+                transition={{duration:2, delay:(index/10) + 0.5}}
+       
+                
+                className='md:w-[30vw] text-center  flex flex-col items-center self-start ' key={index}> 
                   
                      <img src={each_product.attributes?.Image.data.attributes.url} className="w-[50%] md:w-[60%]" alt=""></img>
                     <p className='text-[4vw] md:text-[2vw] w-[70%] 2xl:text-[2em]'>{each_product?.attributes.ProductName}</p>
@@ -133,7 +140,7 @@ const Shimok_products = () => {
 
 
 
-                </div>
+                </motion.div>
             })}
         </div>
     

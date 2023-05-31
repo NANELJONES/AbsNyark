@@ -1,21 +1,46 @@
 import React from 'react'
 import Link from 'next/link'
 import { useStateContext } from '../../context/StateContext';
-import { useEffect } from 'react';
-
+import { motion , Variants} from "framer-motion"
+import { useState } from 'react';
 
 const Cart = () => {
 
 
-const {totalPrice, totalQuantities, cartItems, setshowCart, onRemove, handleUpdate, setcartItems} = useStateContext()
+const {totalPrice,showCart, totalQuantities, cartItems, setshowCart, onRemove, handleUpdate, setcartItems} = useStateContext()
 
+const [hide, setHide] = useState(false)
+
+const onOpen  = {
+  hidden:{ opacity:0, z:-25},
+  show: {opacity:1, y:0}
+}
+
+
+const onClose  = {
+  hidden:{ opacity:1, z:0},
+  show: {opacity:0, y:-25}
+}
+
+const closeCart = ()=>{
+  setHide(!hide)
+  setTimeout(()=>{setshowCart(false)}, 1000)
+  return () => clearTimeout()
+}
 
 
     
 
 return (
-    <div className='fixed shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px] top-[-20px] md:top-[0px] md:max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
-      <p className='absolute right-[20px] cursor-pointer text-[orange] text-[1.3em] rounded-full' onClick={()=>{setshowCart(false)}}>x</p>
+    <motion.div 
+    variants={hide ? onClose : onOpen}
+    initial="hidden"
+    animate="show"
+   
+        transition={{duration:1}}
+    
+    className='fixed shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px] top-[-20px] md:top-[0px] md:max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
+      <p className='absolute right-[20px] cursor-pointer text-[orange] text-[1.3em] rounded-full' onClick={()=>{closeCart()}}>x</p>
       <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/> Cart  Items</h1>
       <p>Total Items: {totalQuantities}</p>
       <br/>
@@ -54,7 +79,7 @@ return (
       </div>
       <br/>
    <Link href={"/abs_nyark/delivery"}><button className='bg-[white] text-[black] mx-[40%] px-[2vw] py-[0.5vw] hover:bg-[orange] hover:text-[white] duration-500 '> CHECKOUT</button></Link>   
-      </div>
+      </motion.div >
   )
 }
 

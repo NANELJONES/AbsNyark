@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {v4 as uuidv4} from "uuid";
+import { motion } from 'framer-motion'
 
  
 const delivery = () => {
@@ -79,11 +80,16 @@ const delivery = () => {
         theme="colored"  />
      <div className='w-full h-auto text-[white] bg-[#2A6243] flex justify-between max-w-[1400px] mx-auto '>
             
-            <div className=' w-[25%] md:w-1/2 hidden md:block md:h-auto bg-secondary relative font-[Display] text-[white] py-[1vw] '>
+            <div className=' w-[25%] px-[1em] md:w-1/2 hidden md:block md:h-auto bg-secondary relative font-[Display] text-[white] py-[1vw] '>
                   <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/>  Cart  Items</h1>
                   <br/>
                   {  typeof cartItems !=="undefined" && cartItems.length != 0 ? cartItems.map((each_item, index)=>{
-                  return <div  className='flex px-[10px] items-center justify-around w-full  bg-[#3C6950] py-[2vw] md:py-[0.8vw] '  key={index}>
+                  return <motion.div 
+                  initial={{ opacity: 0,  x:50 }}
+                  whileInView={{ opacity: 1, x:0}}
+                  transition={{duration:1, delay:(index /10)+ 0.5}}
+                        
+                  className='flex px-[10px] items-center justify-around w-full  bg-[#3C6950] py-[2vw] md:py-[0.8vw] '  key={index}>
                         <button onClick={()=>{onRemove(each_item)}} className='bg-[white] rounded-full leading-[0px] text-[black] p-[0px] w-[20px] h-[20px]'  >x</button>
                       <img src={each_item.Image.data.attributes.url} className='w-[15%] border rounded-[10px] bg-[#322C2C] 2xl:w-[10%]'></img>
                         <div className='w-auto '>
@@ -101,7 +107,7 @@ const delivery = () => {
                         <p>${each_item.TotalPrice}</p>
 
 
-                    </div>
+                    </motion.div>
                   }) :  <p  className='text-center'>You have no items</p>}
 
 

@@ -1,8 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+
 const About_shimok = () => {
   return (
-    <div className='px-[2vw] flex flex-col md:flex-row mt-[10vw] 2xl:mt-[120px] '>
+    <motion.div 
+    initial={{ opacity: 0, x:-40 }}
+    whileInView={{ opacity: 1, x:0 }}
+    transition={{duration:1}}
+    className='px-[2vw] flex flex-col md:flex-row mt-[10vw] 2xl:mt-[120px] '>
         <div className='w-full md:w-1/2 shadow-xl bg-[#DD7C11] font-[Montserrat] px-[5vw] py-[8vw] 2xl:px-[70px] 2xl:py-[80px]'>
             <div className='border-l-[2vw] md:border-l-[1vw] px-[2vw] 2xl:px-[40px] 2xl:border-l-[20px]  '>
                 <h1 className=' text-white text-[14vw] md:text-[7vw]  leading-[85%]   font-regular 2xl:text-[130px]'>   ABOUT</h1>
@@ -26,7 +32,7 @@ const About_shimok = () => {
             
         </div>
 
-    </div>
+    </motion.div>
   )
 }
 
