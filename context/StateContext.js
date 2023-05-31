@@ -78,7 +78,17 @@ export const StateContext = ({children})=>{
 
 
     
-    
+    const clear_local_storage = ()=>{
+        console.log("everthing is about to be cleared")
+        localStorage.clear()
+        setcartItems([])
+        settotalQuantities(0)
+        setdelivery_cost(0)
+        setDeliveryDetails({})
+        settotalPrice(0)
+        setFullPrice(0)
+        console.log("all is cleared")
+    }
 
    
 
@@ -224,7 +234,7 @@ const full_price_calculator =()=>{
 
 
     return(
-        <Context.Provider value={{showCart,full_price, handleUpdate, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
+        <Context.Provider value={{showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
             {children}
         </Context.Provider>
     ) 

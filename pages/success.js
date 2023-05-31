@@ -87,15 +87,7 @@ const success = () => {
           try{
             SendReceipt()
             PostData()
-            console.log("everthing is about to be cleared")
-            localStorage.clear()
-            setcartItems([])
-            settotalQuantities(0)
-            setdelivery_cost(0)
-            setDeliveryDetails({})
-            settotalPrice(0)
-            setFullPrice(0)
-            console.log("all is cleared")
+           
             
             
           }catch(err){
