@@ -24,7 +24,7 @@ const onClose  = {
 
 const closeCart = ()=>{
   setHide(!hide)
-  setTimeout(()=>{setshowCart(false)}, 1000)
+  setTimeout(()=>{setshowCart(false)}, 500)
   return () => clearTimeout()
 }
 
