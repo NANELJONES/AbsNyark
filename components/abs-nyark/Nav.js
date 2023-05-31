@@ -13,16 +13,27 @@ const Nav = () => {
 
 
   const {showCart, setshowCart, totalQuantities} =  useStateContext()
-  useEffect(() => {
+//   useEffect(() => {
 
-    window.addEventListener("resize", ()=>{
-      if(window.innerWidth > 640){
-        setmenu(true)
-      }
-    })
+//     window.addEventListener("resize", ()=>{
 
-  }, [])
+//       if(window.innerWidth < 640){
+//         setmenu(false)
+//       }else{
+//         setmenu(true)
+//       }
+//     })
+
+//   }, [])
   
+// useEffect(() => {
+//   if(menu & window.innerWidth < 640) {
+//     setmenu(false)
+//   }
+
+// }, [])
+
+
   return (
 
       
@@ -34,7 +45,7 @@ const Nav = () => {
        
       {!menu &&<FontAwesomeIcon  icon={faBars}color='white' className='absolute left-[3vw] md:hidden bottom-[2vw] w-[20px]' onClick={()=>{ setmenu(!menu)}}/>}
      
-        {menu &&      
+        {menu ?    
         
              <>
              <FontAwesomeIcon  icon={faClose}color='white' className='absolute left-[3vw] md:hidden w-[20px]' onClick={()=>{ setmenu(!menu)}}/>
@@ -55,11 +66,11 @@ const Nav = () => {
                 <Link href={"/abs_nyark/shimoks"}><p className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Shimoks</p></Link> 
                   </li>
 
-                  <li className='w-auto md:hover:border-l-[1vw] md:hover:border-[orange] duration-300 flex items-center' onClick={()=> {setshowCart(!showCart)}} >
+                  <li className='w-auto md:hover:border-l-[1vw] md:hover:border-[orange] duration-300 flex items-center' onClick={()=> {setshowCart(!showCart) , setmenu(false)}} >
                   
-                     <p  className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
+                     <p  className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' >Cart</p>
                       <FontAwesomeIcon icon={faCartShopping} size='sm' />
-                          <p className='bg-[white] text-[black] text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
+                          <p className='bg-[white] text-[black] text-center rounded-[10vw] px-[8px] '>{totalQuantities}</p>
                  
                   </li>
 
@@ -79,7 +90,7 @@ const Nav = () => {
               </ul>
 
 
-          </>}
+          </>: <></>}
 
 
 
