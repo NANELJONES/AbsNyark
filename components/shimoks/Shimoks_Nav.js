@@ -3,7 +3,7 @@ import React from 'react';
 import Link from "next/link"
 import { useState, useEffect } from 'react';
 import { useStateContext } from '../../context/StateContext';
-import { faBars, faClose, faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faClose, faCartShopping, faL} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Cart from '../cart/Cart';
 
@@ -52,7 +52,7 @@ const Shimoks_Nav = () => {
                     <Link href={"/abs_nyark/shimoks"}><p className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Shimoks</p></Link> 
                   </li>
 
-                  <li className='w-auto flex items-center hover:border-l-[1vw] hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart)}}>
+                  <li className='w-auto flex items-center hover:border-l-[1vw] hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart), setmenu(false)}}>
                   
                        <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
                          <FontAwesomeIcon icon={faCartShopping} size='sm' />
