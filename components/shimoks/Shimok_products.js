@@ -122,13 +122,13 @@ const Shimok_products = () => {
                     <br/>
                     <div className='flex  w-[50%] md:w-2/3 2xl:w-1/3 items-center justify-between '>
                             <button  className='shrink-0  flex items-center justify-around w-[10vw] h-[10vw] md:w-[4vw] md:h-[4vw] 2xl:w-[2vw] 2xl:h-[2vw] rounded-full text-white  text-2xl bg-[#5F5F5F]' onClick={()=>{decrease_qty(index)}}  > - </button>
-                            <input className='border text-center w-[40%] p-[0.5em] '  onChange={()=>{}} value={each_product?.attributes.Quantity}/>
+                            <input className='border text-center bg-[white] w-[40%] p-[0.5em] '  onChange={()=>{}} value={each_product?.attributes.Quantity}/>
                             <button  className='shrink-0  flex items-center justify-around w-[10vw] h-[10vw] md:w-[4vw] md:h-[4vw] 2xl:w-[2vw] 2xl:h-[2vw]  rounded-full text-white  text-2xl bg-[orange]' onClick={()=>{increase_qty(index)  }}   > + </button>
 
                     </div>
                     <br/>
 
-                    <button className='font-[Fraunces] font-thin text-[2vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[15px]    '  onClick={()=>{onAdd(each_product.attributes)}} > ADD TO CART {">>"} </button> 
+                    <button className='font-[Fraunces] font-thin text-[3.5vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[15px]    '  onClick={()=>{onAdd(each_product.attributes)}} > ADD TO CART {">>"} </button> 
 
 
 

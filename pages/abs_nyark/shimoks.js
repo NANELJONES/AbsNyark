@@ -34,7 +34,7 @@ const shimoks = () => {
 
   return (
     
-    <div className='font-[Fraunces] text-white relative  '>
+    <div className='font-[Fraunces] bg-[white] text-white relative  overflow-x-hidden '>
     <Layout>
      <Shimoks_Nav/> 
       
@@ -51,10 +51,10 @@ const shimoks = () => {
           </div>
           
 
-            <p className='text-center text-sm md:text-xl w-[70%] md:w-[40%] font-thin'>Shimoks is our authentic Ghanaian Hot sauces. Our sauces are inspired by love for our Ghanaian cultural foods and spices. Shimoks Hot sauces each have their own unique tastes but complement each other. However, the choice is yours. Get a taste of Ghana.</p>
+            <p className='text-center text-lg md:text-xl w-[70%] md:w-[40%] font-thin'>Shimoks is our authentic Ghanaian Hot sauces. Our sauces are inspired by love for our Ghanaian cultural foods and spices. Shimoks Hot sauces each have their own unique tastes but complement each other. However, the choice is yours. Get a taste of Ghana.</p>
             <br/>
           
-            <Link href={"/abs_nyark/shimoks/#products"}><button className='font-[Fraunces] font-thin text-[2vw] bg-[orange] text-white px-[3vw] py-[1vw]  md:text-[1.5vw] xl:text-[1.2vw] 2xl:text-[20px]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> PURCHASE {">>"} </button></Link> 
+            <Link href={"/abs_nyark/shimoks/#products"}><button className='font-[Fraunces] font-thin text-[3vw] bg-[orange] text-white px-[3vw] py-[1vw]  md:text-[1.5vw] xl:text-[1.2vw] 2xl:text-[20px]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500   '> PURCHASE {">>"} </button></Link> 
 
 
 
@@ -75,9 +75,9 @@ const shimoks = () => {
             </div>
         
           <div className='w-full md:w-1/2 flex flex-col items-center md:block  md:self-end '>
-            <h1 className='text-center md:text-left   leading-[83.9%]  md:text-[8vw] text-[12vw] text-[#4B4B4B] w-[70%] md:w-[40%] font-thin 2xl:text-[150px]  '> SHITOR </h1>
+            <h1 className='text-center md:text-left   leading-[83.9%]  md:text-[10vw] text-[18vw] text-[#4B4B4B] w-[70%] md:w-[40%] font-thin 2xl:text-[150px]  '> SHITOR </h1>
            
-            <p className='text-center  text-sm md:text-lg md:text-left text-[#4B4B4B] w-[70%] md:w-[70%]  xl:tracking-[0.2em] font-thin'>The hot sauce is traditionally called “Shito” which means pepper in the Ghanaian dialect is a popular delicacy
+            <p className='text-center  text-base md:text-[2vw] lg:text-lg md:text-left text-[#4B4B4B] w-[70%] md:w-[70%]  xl:tracking-[0.2em] font-thin'>The hot sauce is traditionally called “Shito” which means pepper in the Ghanaian dialect is a popular delicacy
             from the Ga tribe of Ghana. 
             It is eaten with many Ghanaian dishes such as Kenkey,
             Banku, Fried Yam and Waakye. Theses are just a few of the dishes.
@@ -86,7 +86,7 @@ const shimoks = () => {
             </p>
 
             <br/>
-            <Link href="/"><button className='font-[Fraunces] font-thin text-[2vw] bg-[#42A880] text-white px-[3vw] py-[1vw] md:text-[1.5vw] 2xl:text-[1vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[20px]   '>PURCHASE {">>"}</button></Link>  
+            <Link href="/"><button className='font-[Fraunces] font-thin text-[4vw] bg-[#42A880] text-white px-[3vw] py-[1vw] md:text-[1.5vw] 2xl:text-[1vw] md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[20px]   '>PURCHASE {">>"}</button></Link>  
 
 
 

@@ -11,13 +11,13 @@ const About_shimok = () => {
             </div>
             <br/>
         
-            <h1 className=' text-white text-[4vw]  md:text-[2vw]  font-regular  md:text-left leading-[85%] w-[50%] 2xl:text-[30px]'>A brief history of Shimorks  </h1>
+            <h1 className=' text-white text-[5vw]  md:text-[2vw]  font-regular  md:text-left leading-[85%] w-[50%] 2xl:text-[30px]'>A brief history of Shimorks  </h1>
 
-            <p className='w-full   font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[2.5vw] md:text-[1.2vw]  2xl:text-[20px]  '>Our mission is to bring the beautiful flavours of Ghana beyond its borders. We love the spices and the sauces unique flavours; we aim to represent the culture of Ghana through the Sauces we create.</p>
+            <p className='w-full   md:font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[3vw] md:text-[1.2vw]  2xl:text-[20px]  '>Our mission is to bring the beautiful flavours of Ghana beyond its borders. We love the spices and the sauces unique flavours; we aim to represent the culture of Ghana through the Sauces we create.</p>
 
            
 
-            <p className=' w-full  font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[2.5vw] md:text-[1.2vw] 2xl:text-[20px]   '>Our mission is to bring about a connection between Ghana and the rest of the world.</p>
+            <p className=' w-full  md:font-thin md:text-left pt-[5vw] md:pt-[2vw] md:w-4/5 text-white text-[3vw] md:text-[1.2vw] 2xl:text-[20px]   '>Our mission is to bring about a connection between Ghana and the rest of the world.</p>
             <br/>
          
         </div>

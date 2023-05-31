@@ -45,7 +45,7 @@ useEffect(() => {
                 return  <div key={index}  className="text-center w-[45vw] min-w-[300px] min-h-[350px] md:w-[5vw] xl:w-[10vw] 2xl:w-[70px] bg-secondary flex flex-col justify-between items-center " >
                    <br/>
                   
-                         <p className='w-[70%]  md:text-[1em] leading-[3vw] md:leading-[20px]'>{testimonial?.attributes.Testimonial}</p>
+                         <p className='w-[70%]  md:text-[1em] leading-[4vw] md:leading-[20px]'>{testimonial?.attributes.Testimonial}</p>
                    
 
                   

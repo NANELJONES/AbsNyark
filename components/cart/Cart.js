@@ -14,7 +14,7 @@ const {totalPrice, totalQuantities, cartItems, setshowCart, onRemove, handleUpda
     
 
 return (
-    <div className='absolute shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px]  max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
+    <div className='fixed shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px] top-[-20px] md:top-[0px] md:max-w-[600px] z-[1000] bg-[rgba(0,0,0,0.8)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
       <p className='absolute right-[20px] cursor-pointer text-[orange] text-[1.3em] rounded-full' onClick={()=>{setshowCart(false)}}>x</p>
       <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/> Cart  Items</h1>
       <p>Total Items: {totalQuantities}</p>

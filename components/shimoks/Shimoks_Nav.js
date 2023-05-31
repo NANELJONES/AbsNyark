@@ -30,7 +30,7 @@ const Shimoks_Nav = () => {
         <>
          {showCart && <Cart/> }
   
-       <nav className={`fixed duration-600 z-[100] ${menu ? "bg-[#3E3939]" : "bg-black bg-opacity-50"}   h-auto top-0 left-0   w-full p-1 shadow gap-10 py-[8vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden`} >
+       <nav className={`fixed duration-600 z-[100] ${menu ? "bg-[#3E3939]" : "bg-[#3E3939] bg-opacity-95"}   h-auto  top-0 left-0   w-full p-1  gap-10 py-[5vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden`} >
       
       {!menu &&<FontAwesomeIcon  icon={faBars}color='white' className='absolute left-[3vw] md:hidden  w-[20px]' onClick={()=>{ setmenu(!menu)}}/>}
      
@@ -55,8 +55,8 @@ const Shimoks_Nav = () => {
                   <li className='w-auto flex items-center hover:border-l-[1vw] hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart)}}>
                   
                        <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
-                      <FontAwesomeIcon icon={faCartShopping} size='sm' />
-                        <p suppressHydrationWarning={true} className='bg-[white] text-[black] h-[unset]  text-center rounded-[10vw]  w-[20px] h-[20px]  '>{totalQuantities}</p>
+                         <FontAwesomeIcon icon={faCartShopping} size='sm' />
+                         <p className='bg-[white] text-[black] text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
                  
                   </li>
 

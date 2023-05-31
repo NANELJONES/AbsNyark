@@ -59,7 +59,7 @@ const Nav = () => {
                   
                      <p  className='text-resp text-white w-auto hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
                       <FontAwesomeIcon icon={faCartShopping} size='sm' />
-                          <p className='bg-[white] text-[black] h-[unset] w-[unset]  text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
+                          <p className='bg-[white] text-[black] text-center rounded-[10vw] px-[8px]  '>{totalQuantities}</p>
                  
                   </li>
 

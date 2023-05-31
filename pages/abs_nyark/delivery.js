@@ -77,7 +77,7 @@ const delivery = () => {
         draggable
         pauseOnHover
         theme="colored"  />
-     <div className='w-full h-[100vh] text-[white] bg-[#2A6243] flex justify-between max-w-[1400px] mx-auto '>
+     <div className='w-full h-auto text-[white] bg-[#2A6243] flex justify-between max-w-[1400px] mx-auto '>
             
             <div className=' w-[25%] md:w-1/2 hidden md:block md:h-auto bg-secondary relative font-[Display] text-[white] py-[1vw] '>
                   <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/>  Cart  Items</h1>
@@ -139,14 +139,14 @@ const delivery = () => {
           
             </div> 
                   {/*this is the form for the delivery */}
-               <form className='w-full  md:w-[65%]  font-[Display] md:px-[30px] py-[1vw]   '>
-                <h1 className='text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> Details</h1>
+               <form className='w-[80%] mx-auto  md:w-[65%]  font-[Display] md:px-[30px] py-[1vw]   '>
+                <h1 className='text-[6vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> DETAILS</h1>
               
             
 
                 <div className='px-[20px]  flex flex-wrap    gap-[1em] 2xl:gap-[10px] w-full'>
 
-                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                             <label  className='font-light text-[2.3vw] md:text-[90%]  '>Name:</label>
                                             <input 
                                             required={true}
@@ -159,7 +159,7 @@ const delivery = () => {
                                             className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Name'/>
                       </div>
 
-                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%] md:max-w-[400px] 2xl:gap-[10px]'>
                                             <label  className='font-light text-[2.3vw] md:text-[90%]  '>Email:</label>
                                             <input 
                                             value={delivery_details.customer_email||""}
@@ -173,7 +173,7 @@ const delivery = () => {
                                             className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Email'/>
                       </div>
 
-                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                      <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                             <label  className='font-light text-[2.3vw] md:text-[90%]  '>Mobile:</label>
                                             <input 
                                             required
@@ -196,13 +196,13 @@ const delivery = () => {
                 <br/>
                 
 
-                <h1 className='text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> Options</h1>
+                <h1 className='text-[6vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> Delivery <br/> DETAILS</h1>
                 <br/>
               
                 <div className='px-[20px]  flex flex-wrap    gap-[1em] 2xl:gap-[10px] w-full'>
                 
             
-                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                                 <label  className='font-light text-[2.3vw] md:text-[90%]  '>Address Line1:</label>
                                                 <input 
                                                 required
@@ -215,7 +215,7 @@ const delivery = () => {
                                                 className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 1'/>
                           </div>
 
-                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                                 <label  className='font-light text-[2.3vw] md:text-[90%]  '>Address Line 2:</label>
                                                 <input 
                                                 value={delivery_details.customer_addresslines_2 || ""} 
@@ -227,7 +227,7 @@ const delivery = () => {
                                                 className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 2'/>
                           </div>
 
-                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                                 <label  className='font-light text-[2.3vw] md:text-[90%]  '>Country:</label>
                                                 <input 
                                                 required
@@ -240,7 +240,7 @@ const delivery = () => {
                                                 className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Country'/>
                           </div>
 
-                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  max-w-[400px] 2xl:gap-[10px]'>
+                          <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                                 <label  className='font-light text-[2.3vw] md:text-[90%]  '>Postal:</label>
                                                 <input 
                                                 required
@@ -252,19 +252,14 @@ const delivery = () => {
                                               
                                                 className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Postal'/>
                           </div>
-                          <button type="submit" className='  flex items-center justify-around w-[70%] md:w-[33.3%]  py-[1em] text-[black]  text-[1em] md:text-[0.95em] mx-[20px] md:mx-[auto] bg-[white] ml-[0px] mt-[2em]' onClick={(event)=>{ handleSubmit(event)}}  >  PAYMENT </button>
+                          <button type="submit" className='  flex items-center justify-around w-[100%] md:w-[33.3%]  py-[1em] text-[black]  text-[1em] md:text-[0.95em] mx-[20px] md:mx-[auto] bg-[white] ml-[0px] mt-[2em]' onClick={(event)=>{ handleSubmit(event)}}  >  PAYMENT </button>
            
                 </div>
 
-          
-        
-      
-          
-            
-            
-            
+
             
             </form>
+         
 
 
      </div>
