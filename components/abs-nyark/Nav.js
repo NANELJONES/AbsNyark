@@ -41,7 +41,7 @@ useEffect(() => {
     <>
     {showCart && <Cart/> }
        
-     {!showCart &&  <nav className='sticky z-[10] text-[white]  h-auto top-0 left-0  bg-[#2A6243]  w-full p-1 shadow gap-10 py-[4vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden' >
+       <nav className='sticky z-[10] text-[white]  h-auto top-0 left-0  bg-[#2A6243]  w-full p-1 shadow gap-10 py-[4vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden' >
        
       {!menu &&<FontAwesomeIcon  icon={faBars}color='white' className='absolute left-[3vw] md:hidden bottom-[2vw] w-[20px]' onClick={()=>{ setmenu(!menu)}}/>}
      
@@ -96,7 +96,7 @@ useEffect(() => {
 
   
        </nav>
-}
+
 
 
        
