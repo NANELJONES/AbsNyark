@@ -4,18 +4,17 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-   
+  const taxAmount = 200
     
     try {
         const params ={
             submit_type:"pay",
             mode:"payment",
             payment_method_types:["card"],
-            billing_address_collection:"auto",
+            billing_address_collection: 'auto',
+            
            
-            // automatic_tax: {
-            //   enabled: true,
-            // },
+        
     
  
 
@@ -24,6 +23,7 @@ export default async function handler(req, res) {
                 shipping_rate_data:{
                   type:"fixed_amount",
                   fixed_amount:{amount:req.body.delivery_fee * 100, currency:"eur"},
+                  tax_behavior: 'exclusive',
                   display_name:"Delivery Cost",
                   delivery_estimate:{
                     minimum:{
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
                 }
               }
             ],
-            
+           
 
             line_items: req.body.data.map((item)=> {
                 //const img = process.env.NEXT_PUBLIC_API_URL+item.attributes.Image.data.attributes.url
@@ -54,7 +54,8 @@ export default async function handler(req, res) {
                             images: [imgUrl]
                            
                         },
-                        unit_amount: item.Price * 100
+                        unit_amount: item.Price * 100,
+                        tax_behavior: "exclusive",
                     },
                   
                     quantity: item.Quantity,
@@ -62,6 +63,10 @@ export default async function handler(req, res) {
                 }
             }
             ),
+
+            automatic_tax: {
+              enabled: true,
+            },
 
         
          

@@ -35,6 +35,13 @@ const Shimoks_Nav = () => {
   }, [])
 
 
+  const handle_menu=()=>{
+    setshowCart(!showCart) 
+    if(window.innerWidth < 640){
+      setmenu(false)
+    }
+    
+  }
   
   return (
 
@@ -64,7 +71,7 @@ const Shimoks_Nav = () => {
                     <Link href={"/abs_nyark/shimoks"}><p className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' onClick={()=>{setmenu(false)}}>Shimoks</p></Link> 
                   </li>
 
-                  <li className='w-auto flex items-center md:hover:border-l-[1vw] md:hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart), setmenu(false)}}>
+                  <li className='w-auto flex items-center md:hover:border-l-[1vw] md:hover:border-[orange] duration-300'  onClick={()=> {handle_menu()}}>
                   
                        <p  className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
                          <FontAwesomeIcon icon={faCartShopping} size='sm' />

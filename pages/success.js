@@ -7,20 +7,10 @@ import {useRouter} from 'next/router';
 import moment from 'moment/moment';
 
 const success = () => {
-    const { setcartItems, settotalQuantities, setdelivery_cost,    delivery_cost,totalPrice, total_weight, totalQuantities, full_price, cartItems,  delivery_details,setDeliveryDetails} = useStateContext()
+    const {  delivery_cost,totalPrice, total_weight, totalQuantities, full_price, cartItems,  delivery_details,clear_local_storage} = useStateContext()
     
 
     const router  = useRouter()
-
-
-
-
-
-
-
-
-
-
 
     const SendReceipt = async () =>{
         try{
@@ -37,7 +27,10 @@ const success = () => {
         }
             )
             console.log(response.data)
-        }catch(err){}
+          
+        }catch(err){
+            console.log("An error was generated sending the receipt," + err)
+        }
     }
     
 
@@ -85,8 +78,13 @@ const success = () => {
             alert("I AM ABOUT TO SEND TO RUN A CODE")
           
           try{
-            SendReceipt()
-            PostData()
+          alert(totalPrice)
+           
+            
+           //SendReceipt()
+           //PostData()
+     
+            //clear_local_storage()
            
             
             
@@ -102,7 +100,7 @@ const success = () => {
        
 
     
-    },[delivery_details , full_price])
+    },[delivery_details, totalPrice])
     
   return (
     <div className='bg-secondary h-[100vh] text-white font-[Montserrat]'>

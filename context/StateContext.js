@@ -2,6 +2,9 @@
 
 import React, {createContext,useContext, useState, useEffect} from 'react';
 import axios from 'axios';
+import Toast from '../components/Toast';
+
+
 
 const Context =  createContext();
 
@@ -39,6 +42,8 @@ export const StateContext = ({children})=>{
     const [delivery_rate, setDeliveryRate] = useState([])
      const [total_weight, setTotalWeight] = useState(0)
      const [full_price, setFullPrice] = useState(0)
+     const [product_notification, set_product_notification] = useState("added")
+     
 
 
     useEffect(() => {
@@ -89,8 +94,6 @@ export const StateContext = ({children})=>{
         setFullPrice(0)
         console.log("all is cleared")
     }
-
-   
 
 
     const deliveryFunction=()=>{
@@ -145,12 +148,6 @@ const full_price_calculator =()=>{
 
 
 
-
-
-
-
-
-
     const onAdd = (product)=>{
             const checkProductInCart = cartItems.find((item)=> item.ProductName == product.ProductName )
            if(!checkProductInCart){
@@ -160,7 +157,9 @@ const full_price_calculator =()=>{
            
              settotalQuantities((prevTotalQuantities)=> prevTotalQuantities + product.Quantity)
         }
+
         
+        //alert("product has been added")
 
         
      
@@ -234,8 +233,11 @@ const full_price_calculator =()=>{
 
 
     return(
-        <Context.Provider value={{showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
+        <Context.Provider value={{product_notification, set_product_notification,showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
+            <>
+             <Toast/>
             {children}
+            </>
         </Context.Provider>
     ) 
 }

@@ -2,19 +2,20 @@ import React from 'react'
 import Nav from "../../components/abs-nyark/Nav"
 import { useStateContext } from '../../context/StateContext'
 import getStripe from '../../lib/getStripe'
-import { useEffect } from 'react'
+
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {v4 as uuidv4} from "uuid";
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
  
 const delivery = () => {
   const {delivery_cost,totalPrice, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails} = useStateContext()
+
   const router = useRouter()
 
- 
   
   const  handleCheckout  = async()=>{
    

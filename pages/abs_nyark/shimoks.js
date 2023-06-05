@@ -12,6 +12,11 @@ import { motion } from "framer-motion"
 
 
 
+
+
+
+
+
 const shimoks = () => {
   const more_info =[
     {image:"/dip_it.png",
@@ -30,6 +35,11 @@ const shimoks = () => {
   ]
 
 
+
+
+
+  
+
  
 
 
@@ -38,9 +48,9 @@ const shimoks = () => {
     <div className='font-[Fraunces] bg-[white] text-white relative  overflow-x-hidden '>
     <Layout>
      <Shimoks_Nav/> 
-      
-    
-      
+     
+
+
 
       <div id="#header" style={{ backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.63)), url(/BRAND.png)", backgroundSize:"cover" }} className=' flex flex-col items-center py-[11vw] 2xl:py-[150px]  w-full max-h-[1200px] rounded-br-[15vw] 2xl:rounded-br-[300px] mt-[5vw] md:mt-[auto]'>
           

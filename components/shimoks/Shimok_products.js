@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useStateContext } from '../../context/StateContext';
 import axios from 'axios';
 import { motion } from "framer-motion"
+import {handle_toast_notification} from "/components/Toast.jsx"
 const Shimok_products = () => {
 
     
@@ -15,12 +16,12 @@ const Shimok_products = () => {
 
     const [showMore, setshowMore] = useState("")
     const [selected, set_selected] = useState(false)
-
     const [products, set_products] =  useState([])
 
 
 
     useEffect(() => {
+
         const fetchData = async()=>{
             try{
                 const res   = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/shimok-products?populate=*",
@@ -85,26 +86,16 @@ const Shimok_products = () => {
      
 
 
-
-        
-
-   
-     
-     
-
-
- 
-
-
   return (
     <div className='font-[Serif] text-[black]'>
+
         <h1 className='text-[#659B5E] font-[Serif] text-center text-[8vw] md:text-[4vw] mt-[10vw] md:mt-[3vw]'>PRODUCTS</h1>
         <div className='flex font-[Fraunces]   flex-wrap items-center gap-[1vw] justify-center '>
             {products.map((each_product, index)=>{
                 return<motion.div 
                 initial={{ opacity: 0, y:40 }}
                 whileInView={{ opacity: 1, y:0 }}
-                transition={{duration:2, delay:(index/10) + 0.5}}
+                transition={{duration:1, delay:(index/10) + 0.5}}
        
                 
                 className='md:w-[30vw] text-center  flex flex-col items-center self-start ' key={index}> 
@@ -113,7 +104,7 @@ const Shimok_products = () => {
                     <p className='text-[4vw] md:text-[2vw] w-[70%] 2xl:text-[2em]'>{each_product?.attributes.ProductName}</p>
                     <p className='text-[1.5em]'>${each_product?.attributes.Price} € </p>
 
-                    <button className='text-[orange]' onClick={()=>{setshowMore(index), set_selected(!selected)}}> {showMore ? "Read Less " : "Read More"}</button>
+                    <button className='text-[orange]' onClick={()=>{setshowMore(index), set_selected(!selected)}}> {showMore===index & selected ? "Read Less " : "Read More"}</button>
                     <br/>
 
                     {showMore == index && selected ?                     <div className='font-thin w-[70%]'>
@@ -135,7 +126,7 @@ const Shimok_products = () => {
                     </div>
                     <br/>
 
-                    <button className='font-[Fraunces] font-thin text-[3.5vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[15px]    '  onClick={()=>{onAdd(each_product.attributes)}} > ADD TO CART {">>"} </button> 
+                    <button className='font-[Fraunces] font-thin text-[3.5vw] bg-[#42A880] text-white px-[3vw] py-[2vw] md:text-[1.5vw] lg:text-[1.3vw] xl:text-[1vw]  md:px-[1.5em] md:py-[.6em] md:hover:bg-pink md:hover:text-white md:hover:px-[2.2em] md:hover:py-[0.8em] md:hover:text-1.5xl duration-500 2xl:text-[15px]    '  onClick={()=>{onAdd(each_product.attributes), handle_toast_notification("Product Added To Cart")      }} > ADD TO CART {">>"} </button> 
 
 
 
