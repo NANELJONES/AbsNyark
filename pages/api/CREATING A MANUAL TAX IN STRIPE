@@ -3,11 +3,17 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  //const tax_Rate =  await stripe.taxRates.retrieve("txr_1NFkXQCozGif7FXLzTa1ST51")
-  
+  const tax_Rate =  await stripe.taxRates.create({
+    display_name:"VAT",
+    description: "VAT UNITED",
+
+    country:"GB",
+    percentage:20,
+    inclusive:false
+
+  })
   
   if (req.method === 'POST') {
-
 
     try {
         const params ={
@@ -15,7 +21,13 @@ export default async function handler(req, res) {
             mode:"payment",
             payment_method_types:["card"],
             billing_address_collection: 'auto',
+            
 
+
+           
+        
+    
+ 
 
             shipping_options:[
               {
@@ -58,13 +70,15 @@ export default async function handler(req, res) {
                     },
                   
                     quantity: item.Quantity,
-                   tax_rates: [req.body.tax_info.tax_id]
+                    tax_rates: [tax_Rate.id]
                    
                 }
             }
             ),
 
-        
+            // automatic_tax: {
+            //   enabled: true,
+            // },
 
         
          

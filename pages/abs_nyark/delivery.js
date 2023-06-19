@@ -3,18 +3,21 @@ import Nav from "../../components/abs-nyark/Nav"
 import { useStateContext } from '../../context/StateContext'
 import getStripe from '../../lib/getStripe'
 
-import { useRouter } from 'next/router'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {v4 as uuidv4} from "uuid";
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useState } from 'react';
+
 
  
 const delivery = () => {
-  const {delivery_cost,totalPrice, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails} = useStateContext()
+  const {delivery_cost,totalPrice, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails, setUser_Tax,user_taxes} = useStateContext()
 
-  const router = useRouter()
+  const [allTaxes, setAllTaxes] = useState({})
+  const [my, setmy] = useState(false)
 
   
   const  handleCheckout  = async()=>{
@@ -26,7 +29,7 @@ const delivery = () => {
       headers:{
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({data:cartItems, delivery_fee:delivery_cost, customer_info:delivery_details})
+      body: JSON.stringify({data:cartItems, delivery_fee:delivery_cost, customer_info:delivery_details, tax_info:user_taxes})
     })
 
     if(response.statusCode === 500) return
@@ -37,6 +40,28 @@ const delivery = () => {
     stripe.redirectToCheckout({sessionId:data.id});
   }
 
+  const countryCodes = {
+    US: 'United States',
+    CA: 'Canada',
+    GB: 'United Kingdom',
+    DE: 'Germany',
+    FR: 'France',
+   GH:  "Ghana"
+  };
+  
+
+const handleDropDown =(event)=>{
+  
+  if(event.target.value !== ""){
+    setDeliveryDetails({...delivery_details, customer_country: JSON.parse(event.target.value).country})
+    setUser_Tax(JSON.parse(event.target.value))
+    console.log(allTaxes)
+  }
+
+
+  
+  console.log(user_taxes)
+}
 
   const handleSubmit = (event)=>{
     event.preventDefault()
@@ -63,6 +88,23 @@ const delivery = () => {
     }
   }
 
+useEffect(() => {
+  console.log(user_taxes)
+    const fetchTaxRates = async ()=>{
+    const rep = await fetch("/api/taxRate")
+    const da = await rep.json()
+    const refinded = da.taxR.data.filter((nomber)=>{return nomber.active === true })
+    const modified = Object.fromEntries(Object.entries(refinded).map(([key,value])=> [key, {...value, region: countryCodes[value.country]}]   ))
+     setAllTaxes(modified)
+     setmy(true)
+
+  }
+
+  fetchTaxRates()
+ 
+
+
+},[my,delivery_details])
 
 
   return (
@@ -145,6 +187,7 @@ const delivery = () => {
 
           
             </div> 
+       
                   {/*this is the form for the delivery */}
                <form className='w-[80%] mx-auto  md:w-[65%]  font-[Display] md:px-[30px] py-[1vw]   '>
                 <h1 className='text-[6vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> DETAILS</h1>
@@ -236,15 +279,30 @@ const delivery = () => {
 
                           <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
                                                 <label  className='font-light text-[2.3vw] md:text-[90%]  '>Country:</label>
-                                                <input 
-                                                required
+                                             
+
+                                                { <select required onChange={handleDropDown} className='bg-[transparent] border  focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em] ' >
+                                                  
+                                                <option value="" className='text-[#000]'> -- SELECT A COUNTRY --</option>
+
+                                                  {Object.entries(allTaxes).map(([key, value])=>(
+                                                      
+                                                      <option key={key} value= {JSON.stringify({country:value.region, rate:value.effective_percentage, tax_id: value.id})} className='text-[#000]' >
+                                                        {value.region}
+                                                      </option>
+                                                  ))}
+                                                </select> }
+
+                                                {/* <input 
+                                                
                                                 value={delivery_details.customer_country || "" }
                                         
                                                 onChange={(event)=>{
                                                     setDeliveryDetails({...delivery_details, customer_country: event.target.value})         
                                                 }}
                                               
-                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Country'/>
+                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Country'/> */}
+                        
                           </div>
 
                           <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>

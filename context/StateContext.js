@@ -14,14 +14,15 @@ export const StateContext = ({children})=>{
     let total_quant_from_lc;
     let delivery_cost_from_lc;
     let delivery_details_from_lc;
-
     let total_price_from_lc;
-
     let full_price_from_lc ;
+    let taxes_from_lc;
 
 
     if(typeof window !== "undefined"){
         cartFromLocalStorage =JSON.parse(localStorage.getItem("cart") || "[]" )
+        taxes_from_lc =JSON.parse(localStorage.getItem("taxes_") || "{}" )
+       
         total_quant_from_lc =JSON.parse(localStorage.getItem("total_quant") || "0")
         delivery_cost_from_lc =JSON.parse(localStorage.getItem("deliv_cost") || "0")
         delivery_details_from_lc =JSON.parse(localStorage.getItem("deliv_details") || "{}")
@@ -33,6 +34,9 @@ export const StateContext = ({children})=>{
 
     
     const [showCart, setshowCart] = useState(false);
+    const [user_taxes, setUser_Tax] = useState({})
+
+
     const [cartItems, setcartItems] = useState([]);
     const [totalPrice, settotalPrice] = useState(0);
     const [delivery_details, setDeliveryDetails] = useState({customer_name:"", customer_email:"", customer_mobile:"" , customer_order_code:"", customer_addresslines_1:"",customer_addresslines_2:"",customer_country:"",customer_postal:"", order_date:"",  delivery_date:"" , status:"Order In Progress"})
@@ -75,6 +79,7 @@ export const StateContext = ({children})=>{
      setDeliveryDetails(delivery_details_from_lc)
      settotalPrice(total_price_from_lc)
      setFullPrice(full_price_from_lc)
+     setUser_Tax(taxes_from_lc)
 
     
     
@@ -92,6 +97,7 @@ export const StateContext = ({children})=>{
         setDeliveryDetails({})
         settotalPrice(0)
         setFullPrice(0)
+        setUser_Tax({})
         console.log("all is cleared")
     }
 
@@ -99,14 +105,14 @@ export const StateContext = ({children})=>{
     const deliveryFunction=()=>{
         
         
-        if(cartItems.length > 0){
+        if(cartItems && cartItems.length > 0){
            setTotalWeight(()=>   cartItems.reduce((accumulator, currentValue)=>accumulator + currentValue.TotalWeight, 0) )
         }
        
 
         delivery_rate.map((each_del_rate)=>{
             if(total_weight >= each_del_rate.attributes.Min_Weight && total_weight <= each_del_rate.attributes.Max_Weight ){
-               if(cartItems.length > 0){
+               if(cartItems && cartItems.length > 0){
                 setdelivery_cost( each_del_rate.attributes.Delivery_Price)
                }else{
                 setdelivery_cost(0)
@@ -137,6 +143,7 @@ const full_price_calculator =()=>{
         localStorage.setItem("tot_price", JSON.stringify(totalPrice))
         
         localStorage.setItem("ful_price", JSON.stringify(full_price))
+        localStorage.setItem("taxes_", JSON.stringify(user_taxes))
         full_price_calculator()
         deliveryFunction()
         
@@ -233,7 +240,7 @@ const full_price_calculator =()=>{
 
 
     return(
-        <Context.Provider value={{product_notification, set_product_notification,showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
+        <Context.Provider value={  {setUser_Tax, user_taxes,  product_notification, set_product_notification,showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
             <>
              <Toast/>
             {children}
