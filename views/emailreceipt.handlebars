@@ -7,19 +7,29 @@
     <title>ABS NYARK RECEIPT EMAIL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
-
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300&display=swap" rel="stylesheet">
+   
+   <style>
         body{
+            box-sizing: border-box;
+            font-family: "Roboto";
            
             text-align: center;
-            font-family: "Fraunces";
+            ;
         }
 
         p, h1, h2, h3,h4, h5,h6{
             
-            font-family: "Fraunces";
+            font-family: "Montserrat";
 
+        }
+
+        p{
+            font-size: 90%;
+        }
+
+        .dev_det{
+            font-weight: 400;
         }
 
         section{
@@ -34,6 +44,48 @@
         width: 100%;
         
        } 
+
+       @media screen and (max-width:339px) {
+
+        .subtotal p{
+            font-size: 60%;
+        }
+
+        .subtotal h2{
+            font-size: 60%;
+  
+        }
+
+        
+
+        .top_table th{
+            font-size: 60%;
+        }
+
+        #customer_details table th{
+            width: 100%;
+            
+        display: flex;
+        flex-direction: column;
+            flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding:0px;
+   
+          
+
+       }
+
+
+       #customer_details table p {
+       
+        text-align: center;
+       }
+       
+       }
+
+    
+       
      td {
         padding:20px 0px 20px 0px;
             border-bottom:1px solid black;
@@ -92,7 +144,7 @@
 
 
         <!-- sutotal -->
-        <div style="display: flex; justify-content: space-between; border-top: 5px solid black;">
+        <div class="subtotal" style="display: flex; justify-content: space-between; border-top: 5px solid black;">
             <p>SUBTOTAL: </p>
             <p>{{subtotal}} £</p>
         </div>
@@ -100,22 +152,22 @@
         <br/>
         <!-- Additional Cost -->
         <div>
-                <h4 style="text-align: left;">ADDITIONAL COST</h4>
-                <div  class="extra">
+                <h4  style="text-align: left;">ADDITIONAL COST</h4>
+                <div  class="extra subtotal">
                     <p>DELIVERY:</p>
                     <p>{{delivery_cost}} £ </p>
                 </div>
 
 
-                <div class="extra">
+                <div class="extra subtotal">
                     <p>TAXES:</p>
-                    <p>{{tax}} £ </p>
+                    <p>  {{tax}} £ (   {{tax_percentage}} )  </p>
                 </div>
 
                 
-                <div class="extra" style="display: flex; justify-content: space-between; border-top: 5px solid black;">
+                <div class="extra subtotal" style="display: flex; justify-content: space-between; border-top: 5px solid black;">
                     <h2>TOTAL:</h2>
-                    <h2 style="font-size:large;">{{full_cost}}£ </h2>
+                    <h2>{{full_cost}}£ </h2>
                 </div>
 
         </div>
@@ -131,14 +183,14 @@
             <table >
                 <tr style="text-align: left;">
                     <th>
-                        <p>NAME:</p>
-                        <p>{{c_name}}</p>
+                        <p >NAME:</p>
+                        <p class="dev_det">{{c_name}}</p>
                         
                     </th>
 
                     <th>
                         <p>EMAIL:</p>
-                        <p>{{c_email}}</p>
+                        <p  class="dev_det">{{c_email}}</p>
                         
                     </th>
 
@@ -157,13 +209,13 @@
                 <tr style="text-align: left;">
                     <th>
                         <p>MOBILE:</p>
-                        <p>{{c_mobile}}</p>
+                        <p  class="dev_det">{{c_mobile}}</p>
                         
                     </th>
 
                     <th>
                         <p>ORDER CODE:</p>
-                        <p>{{c_order_code}}</p>
+                        <p  class="dev_det">{{c_order_code}}</p>
                         
                     </th>
 
@@ -182,13 +234,13 @@
                 <tr style="text-align: left;">
                     <th>
                         <p>ADDRESSLLINE 1:</p>
-                        <p>{{c_address_1}}</p>
+                        <p  class="dev_det">{{c_address_1}}</p>
                         
                     </th>
 
                     <th>
                         <p>ADDRESSLINE 2:</p>
-                        <p>{{c_address_1}}</p>
+                        <p  class="dev_det">{{c_address_1}}</p>
                         
                     </th>
 
@@ -207,13 +259,13 @@
                 <tr style="text-align: left;">
                     <th>
                         <p>COUNTRY:</p>
-                        <p>{{c_country}}</p>
+                        <p  class="dev_det">{{c_country}}</p>
                         
                     </th>
 
                     <th>
                         <p>POSTAL:</p>
-                        <p>{{c_postal}}</p>
+                        <p  class="dev_det">{{c_postal}}</p>
                         
                     </th>
 
@@ -232,13 +284,13 @@
                 <tr style="text-align: left;">
                     <th>
                         <p>ORDER DATE:</p>
-                        <p>{{c_order_date}}</p>
+                        <p  class="dev_det">{{c_order_date}}</p>
                         
                     </th>
 
                     <th>
                         <p>DELIVERY DATE:</p>
-                        <p>BETWEEN 3-5 BUSINESS DAYS</p>
+                        <p  class="dev_det">BETWEEN 3-5 BUSINESS DAYS</p>
                         
                     </th>
 

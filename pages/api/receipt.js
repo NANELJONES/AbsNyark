@@ -3,6 +3,8 @@ export  default function handler (req, res){
 
 let html = [];
 
+
+
  function stringGenerator() {
         console.log("string function is being run")
         const convertedHtml = req.body.cart_info.map((each_item) => {
@@ -56,7 +58,8 @@ const mailData ={
         subtotal:req.body.total_cost,
         full_cost: req.body.full_total,
         delivery_cost: req.body.delivery_fee,
-        tax: 0,
+        tax: req.body.taxes,
+        tax_percentage:req.body.tax.rate ,
         c_name:req.body.delivery_info.customer_name,
         c_email:req.body.delivery_info.customer_email,
         c_mobile:req.body.delivery_info.customer_mobile,

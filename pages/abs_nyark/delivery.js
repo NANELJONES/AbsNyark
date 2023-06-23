@@ -14,7 +14,7 @@ import { useState } from 'react';
 
  
 const delivery = () => {
-  const {delivery_cost,totalPrice, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails, setUser_Tax,user_taxes} = useStateContext()
+  const {delivery_cost,totalPrice,setshowCart, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails, setUser_Tax,user_taxes} = useStateContext()
 
   const [allTaxes, setAllTaxes] = useState({})
   const [my, setmy] = useState(false)
@@ -55,18 +55,19 @@ const handleDropDown =(event)=>{
   if(event.target.value !== ""){
     setDeliveryDetails({...delivery_details, customer_country: JSON.parse(event.target.value).country})
     setUser_Tax(JSON.parse(event.target.value))
-    console.log(allTaxes)
+    console.log(user_taxes)
   }
 
 
   
-  console.log(user_taxes)
 }
 
   const handleSubmit = (event)=>{
     event.preventDefault()
    
     if(!delivery_details.customer_name || !delivery_details.customer_email || !delivery_details.customer_mobile || !delivery_details.customer_addresslines_1 || !delivery_details.customer_country || !delivery_details.customer_postal ){
+      
+      
       toast.error('Please Fill All Fields', {
         position: "top-center",
         autoClose: 2000,
@@ -89,7 +90,7 @@ const handleDropDown =(event)=>{
   }
 
 useEffect(() => {
-  console.log(user_taxes)
+  setshowCart(false)
     const fetchTaxRates = async ()=>{
     const rep = await fetch("/api/taxRate")
     const da = await rep.json()
@@ -287,7 +288,7 @@ useEffect(() => {
 
                                                   {Object.entries(allTaxes).map(([key, value])=>(
                                                       
-                                                      <option key={key} value= {JSON.stringify({country:value.region, rate:value.effective_percentage, tax_id: value.id})} className='text-[#000]' >
+                                                      <option key={key} value= {JSON.stringify({country:value.region, rate:value.effective_percentage, tax_id: value.id, tax_amount:totalPrice*(value.effective_percentage/100) })} className='text-[#000]' >
                                                         {value.region}
                                                       </option>
                                                   ))}

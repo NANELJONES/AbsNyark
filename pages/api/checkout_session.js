@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  //const tax_Rate =  await stripe.taxRates.retrieve("txr_1NFkXQCozGif7FXLzTa1ST51")
+
   
   
   if (req.method === 'POST') {
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
                            
                         },
                         unit_amount: item.Price * 100,
-                        tax_behavior: "exclusive",
+                        
                     },
                   
                     quantity: item.Quantity,

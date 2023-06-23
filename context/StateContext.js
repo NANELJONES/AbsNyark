@@ -163,7 +163,8 @@ const full_price_calculator =()=>{
              settotalPrice((prevTotalPrice)=> prevTotalPrice + product.Quantity * product.Price)
            
              settotalQuantities((prevTotalQuantities)=> prevTotalQuantities + product.Quantity)
-        }
+        
+            }
 
         
         //alert("product has been added")
@@ -240,7 +241,7 @@ const full_price_calculator =()=>{
 
 
     return(
-        <Context.Provider value={  {setUser_Tax, user_taxes,  product_notification, set_product_notification,showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight}}>
+        <Context.Provider value={  {setUser_Tax, user_taxes,  product_notification, set_product_notification,showCart,full_price, handleUpdate, clear_local_storage, onRemove, cartItems, setshowCart, totalPrice, totalQuantities, qty, incQty, decQty, onAdd, delivery_details,setDeliveryDetails, setcartItems, delivery_cost, total_weight, setFullPrice}}>
             <>
              <Toast/>
             {children}

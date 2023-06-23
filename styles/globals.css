@@ -24,6 +24,11 @@ a {
 
 * {
   box-sizing: border-box;
+  
+}
+
+p, h1, h2 {
+  cursor:context-menu;
 }
 
 @media (prefers-color-scheme: dark) {
