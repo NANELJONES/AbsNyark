@@ -12,7 +12,11 @@ import { motion } from 'framer-motion'
 import { useState } from 'react';
 
 
- 
+
+const generate_short_code=()=>{
+  
+}
+
 const delivery = () => {
   const {delivery_cost,totalPrice,setshowCart, full_price, cartItems, onRemove, handleUpdate,  delivery_details,setDeliveryDetails, setUser_Tax,user_taxes} = useStateContext()
 
@@ -51,23 +55,36 @@ const delivery = () => {
   
 
 const handleDropDown =(event)=>{
-  
+  console.log("dropdown is being handled")
   if(event.target.value !== ""){
     setDeliveryDetails({...delivery_details, customer_country: JSON.parse(event.target.value).country})
     setUser_Tax(JSON.parse(event.target.value))
-    console.log(user_taxes)
+
+  }else if(!delivery_details.customer_country || delivery_details.customer_country === ""){
+    alert("Please Select A Country")
+    setDeliveryDetails({...delivery_details, customer_country:""})
+  }else{
+    alert("Please Select A Country")
+    setDeliveryDetails({...delivery_details, customer_country:""})
   }
 
 
   
 }
 
+
+
+
   const handleSubmit = (event)=>{
     event.preventDefault()
-   
+    
+    if(delivery_details.customer_country===""){
+      alert("Please Select A Country")
+    }
+    
+
+
     if(!delivery_details.customer_name || !delivery_details.customer_email || !delivery_details.customer_mobile || !delivery_details.customer_addresslines_1 || !delivery_details.customer_country || !delivery_details.customer_postal ){
-      
-      
       toast.error('Please Fill All Fields', {
         position: "top-center",
         autoClose: 2000,
@@ -82,14 +99,16 @@ const handleDropDown =(event)=>{
     
     }else{
       console.log("we are good")
-      if(!delivery_details.customer_order_code){
-        setDeliveryDetails({...delivery_details, customer_order_code: uuidv4(), order_date: new Date()})
-     }
-      handleCheckout()
+      const code = uuidv4()
+  
+      setDeliveryDetails({...delivery_details, customer_order_code: code.slice(0,8), order_date: new Date(),status:"Order In Progress"})
+   
+      //handleCheckout()
     }
   }
 
 useEffect(() => {
+  
   setshowCart(false)
     const fetchTaxRates = async ()=>{
     const rep = await fetch("/api/taxRate")
@@ -102,6 +121,8 @@ useEffect(() => {
   }
 
   fetchTaxRates()
+
+  console.log(delivery_details)
  
 
 
@@ -137,7 +158,7 @@ useEffect(() => {
                         <button onClick={()=>{onRemove(each_item)}} className='bg-[white] rounded-full leading-[0px] text-[black] p-[0px] w-[20px] h-[20px]'  >x</button>
                       <img src={each_item.Image.data.attributes.url} className='w-[15%] border rounded-[10px] bg-[#322C2C] 2xl:w-[10%]'></img>
                         <div className='w-auto '>
-                          <p className=' text-[2.5vw] w-[80%] md:text-[2vw] lg:text-[1.3vw] 2xl:text-[20px] font-regular leading-[90%] ' >{each_item.ProductName}</p>
+                          <p className=' text-[2.5vw] w-[80%] md:text-[3vw] lg:text-[1.3vw] 2xl:text-[20px] font-regular leading-[90%] ' >{each_item.ProductName}</p>
                           <p className='w-[30%] font-thin italic '>€ {each_item.Price} </p>
                         </div>
 
@@ -190,11 +211,16 @@ useEffect(() => {
             </div> 
        
                   {/*this is the form for the delivery */}
+                  <br/>
+                  <br/>
+                  <br/>
+                
                <form className='w-[80%] mx-auto  md:w-[65%]  font-[Display] md:px-[30px] py-[1vw]   '>
-                <h1 className='text-[6vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> DETAILS</h1>
+                <h1 className='text-[10vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> PERSONAL  <br/> INFORMATION</h1>
               
             
-
+                <br/>
+            
                 <div className='px-[20px]  flex flex-wrap    gap-[1em] 2xl:gap-[10px] w-full'>
 
                       <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
@@ -207,7 +233,7 @@ useEffect(() => {
                                                 setDeliveryDetails({...delivery_details, customer_name: event.target.value})         
                                             }}
                                             
-                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Name'/>
+                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Name'/>
                       </div>
 
                       <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%] md:max-w-[400px] 2xl:gap-[10px]'>
@@ -221,7 +247,7 @@ useEffect(() => {
                                                 setDeliveryDetails({...delivery_details, customer_email: event.target.value})         
                                             }}
                                             required 
-                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Email'/>
+                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Email'/>
                       </div>
 
                       <div className='flex  w-auto  grow flex-col  md:mt-[3vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
@@ -235,7 +261,7 @@ useEffect(() => {
                                                 setDeliveryDetails({...delivery_details, customer_mobile: event.target.value})         
                                             }}
                                             
-                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Phone Number'/>
+                                            className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Phone Number'/>
                       </div>
 
 
@@ -247,7 +273,7 @@ useEffect(() => {
                 <br/>
                 
 
-                <h1 className='text-[6vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> Delivery <br/> DETAILS</h1>
+                <h1 className='text-[10vw] text-center md:text-[5vw] lg:text-[4vw] 2xl:text-[40px] text-[white] leading-[80%]'> DELIVERY <br/> DETAILS</h1>
                 <br/>
               
                 <div className='px-[20px]  flex flex-wrap    gap-[1em] 2xl:gap-[10px] w-full'>
@@ -263,7 +289,7 @@ useEffect(() => {
                                                     setDeliveryDetails({...delivery_details, customer_addresslines_1: event.target.value})         
                                                 }}
                                                 
-                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 1'/>
+                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 1'/>
                           </div>
 
                           <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
@@ -275,7 +301,7 @@ useEffect(() => {
                                                     setDeliveryDetails({...delivery_details, customer_addresslines_2: event.target.value})         
                                                 }}
                                               name="address"
-                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 2'/>
+                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Addressline 2'/>
                           </div>
 
                           <div className='flex  w-auto  grow flex-col  md:mt-[1.5vw] gap-[1vw] 2xl:text-[1em] 2xl:mt-[20px] w-full md:w-[40%]  md:max-w-[400px] 2xl:gap-[10px]'>
@@ -284,7 +310,7 @@ useEffect(() => {
 
                                                 { <select required onChange={handleDropDown} className='bg-[transparent] border  focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em] ' >
                                                   
-                                                <option value="" className='text-[#000]'> -- SELECT A COUNTRY --</option>
+                                                <option value=""  onSelect={()=>{alert("banku")}} className='text-[#000]'> -- SELECT A COUNTRY --</option>
 
                                                   {Object.entries(allTaxes).map(([key, value])=>(
                                                       
@@ -302,7 +328,7 @@ useEffect(() => {
                                                     setDeliveryDetails({...delivery_details, customer_country: event.target.value})         
                                                 }}
                                               
-                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Country'/> */}
+                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Country'/> */}
                         
                           </div>
 
@@ -316,9 +342,9 @@ useEffect(() => {
                                                     setDeliveryDetails({...delivery_details, customer_postal: event.target.value})         
                                                 }}
                                               
-                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[2vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Postal'/>
+                                                className= 'bg-[transparent]  border    focus:text-white  p-[3vw] text-[3vw] md:text-[1.1vw] md:focus:text-[1.7vw] lg:focus:text-[0.9vw] lg:text-[0.85vw] md:p-[1.5vw]  duration-700 2xl:p-[14px] 2xl:text-[1em]  ' placeholder='Please Enter Your Postal'/>
                           </div>
-                          <button type="submit" className='  flex items-center justify-around w-[100%] md:w-[33.3%]  py-[1em] text-[black]  text-[1em] md:text-[0.95em] mx-[20px] md:mx-[auto] bg-[white] ml-[0px] mt-[2em]' onClick={(event)=>{ handleSubmit(event)}}  >  PAYMENT </button>
+                          <button type="submit" className='  flex items-center justify-around w-[100%] md:w-[33.3%] mb-[20%]  md:mb-[5%] py-[1em] text-[black]  text-[1em] md:text-[0.95em] mx-[20px] md:mx-[auto] bg-[white] ml-[0px] mt-[2em]' onClick={(event)=>{ handleSubmit(event)}}  >  PAYMENT </button>
            
                 </div>
 

@@ -36,9 +36,11 @@ const Shimoks_Nav = () => {
 
 
   const handle_menu=()=>{
-    setshowCart(!showCart) 
+    setshowCart(false) 
     if(window.innerWidth < 640){
       setmenu(false)
+    }else{
+      setmenu(true)
     }
     
   }
@@ -46,7 +48,7 @@ const Shimoks_Nav = () => {
   return (
 
 
-        <>
+        <div className='relative'>
          {showCart && <Cart/> }
   
        <nav className={`fixed duration-600 z-[10] ${menu ? "bg-[#3E3939]" : "bg-[#3E3939] bg-opacity-95"}   h-auto  top-0 left-0   w-full p-1  gap-10 py-[5vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden`} >
@@ -68,10 +70,10 @@ const Shimoks_Nav = () => {
               <ul   className='w-full flex flex-col justify-evenly items-center  flex-wrap gap-10  md:flex-row md:w-full    md:gap-5 md:w-[70%] 2xl:w-3/6 duration-300'>
             
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                    <Link href={"/abs_nyark/shimoks"}><p className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' onClick={()=>{setmenu(false)}}>Shimoks</p></Link> 
+                    <Link href={"/abs_nyark/shimoks"}><p className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' onClick={()=> {handle_menu()}}>Shimoks</p></Link> 
                   </li>
 
-                  <li className='w-auto flex items-center md:hover:border-l-[1vw] md:hover:border-[orange] duration-300'  onClick={()=> {handle_menu()}}>
+                  <li className='w-auto flex items-center md:hover:border-l-[1vw] md:hover:border-[orange] duration-300'  onClick={()=> {setshowCart(!showCart)}}>
                   
                        <p  className='text-resp text-white w-auto md:hover:text-3xl hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'>Cart</p>
                          <FontAwesomeIcon icon={faCartShopping} size='sm' />
@@ -80,11 +82,11 @@ const Shimoks_Nav = () => {
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
-                  <Link href={"/abs_nyark/shimoks/#about_us"} scroll={true}><p className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' onClick={()=>{setmenu(false)}   }>About Us</p></Link>
+                  <Link href={"/abs_nyark/shimoks/#about_us"} scroll={true}><p className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]' onClick={()=> {handle_menu()}}>About Us</p></Link>
                   </li>
 
                   <li className='w-auto md:hover:border-l-[1vw] md:hover:border-[orange] duration-300'>
-                  <Link href={"/abs_nyark/shimoks/#contact_us"} scroll={true}><p  className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'  onClick={()=>{setmenu(false)}}>Contact Us</p></Link>
+                  <Link href={"/abs_nyark/shimoks/#contact_us"} scroll={true}><p  className='text-resp text-white w-auto md:hover:text-3xl md:hover:font-thin duration-500 font-thin font-[Fraunces] md:text-resp2 lg:text-[1em]'  onClick={()=> {handle_menu()}}>Contact Us</p></Link>
                   </li>
 
                   <li className='w-auto hover:border-l-[1vw] hover:border-[orange] duration-300'>
@@ -101,7 +103,7 @@ const Shimoks_Nav = () => {
 
   
   </nav>
-  </>
+  </div>
 
 
   )

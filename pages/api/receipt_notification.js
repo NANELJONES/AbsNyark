@@ -50,9 +50,9 @@ transporter.use('compile', hbs(handlebarOptions));
 
 const mailData ={
     from: process.env.NEXT_PUBLIC_EMAIL,
-    to:   req.body.delivery_info.customer_email,
+    to:   process.env.NEXT_PUBLIC_EMAIL,
     subject:`Message from  ${req.body.delivery_info.customer_name}`,
-    template:"emailreceipt",
+    template:"ordernotification",
     context:{
         cart_orders: html.toString(),
         subtotal:req.body.total_cost,
