@@ -51,7 +51,7 @@ const handle_menu=()=>{
        
       {!menu &&<FontAwesomeIcon  icon={faBars}color='white' className='absolute left-[3vw] md:hidden bottom-[2vw] w-[20px]' onClick={()=>{ setmenu(!menu)}}/>}
      
-        {menu ?    
+        {menu && !showCart?    
         
              <>
              <FontAwesomeIcon  icon={faClose}color='white' className='absolute left-[3vw] md:hidden w-[20px]' onClick={()=>{ setmenu(!menu)}}/>
