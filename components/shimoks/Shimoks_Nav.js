@@ -48,7 +48,7 @@ const Shimoks_Nav = () => {
   return (
 
 
-        <div className='relative'>
+        < >
          {showCart && <Cart/> }
   
        <nav className={`fixed duration-600 z-[10] ${menu ? "bg-[#3E3939]" : "bg-[#3E3939] bg-opacity-95"}   h-auto  top-0 left-0   w-full p-1  gap-10 py-[5vw] md:py-[1vw]  flex items-center flex-col  md:flex-row md:w-full md:items-center md:justify-between overflow-x-hidden`} >
@@ -103,7 +103,7 @@ const Shimoks_Nav = () => {
 
   
   </nav>
-  </div>
+  </>
 
 
   )

@@ -40,7 +40,7 @@ return (
    
         transition={{duration:1}}
     
-    className='fixed shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px] top-[-20px] md:top-[0px] md:max-w-[600px] z-[100] bg-[rgba(0,0,0,1)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
+    className='fixed shadow w-[100vw] md:w-[50vw]  lg:w-[40vw] font-[Montserrat] right-[0px] top-[-20px] md:top-[0px] md:max-w-[600px] z-[10000000000] bg-[rgba(0,0,0,1)] h-[auto] py-[3%] px-[20px] bg-red text-white '>
       <br/>
       <p className='absolute right-[20px] cursor-pointer text-[orange] text-[1.3em] rounded-full' onClick={()=>{closeCart()}}>x</p>
       <h1 className='font-[Display] text-[6vw] md:text-[5vw] lg:text-[4vw] 2xl:text-[45px] leading-[80%]'> Your <br/> Cart  Items</h1>
