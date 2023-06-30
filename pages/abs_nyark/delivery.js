@@ -103,7 +103,7 @@ const handleDropDown =(event)=>{
   
       setDeliveryDetails({...delivery_details, customer_order_code: code.slice(0,8), order_date: new Date(),status:"Order In Progress"})
    
-      //handleCheckout()
+      handleCheckout()
     }
   }
 
