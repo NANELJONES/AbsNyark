@@ -33,7 +33,7 @@ const closeCart = ()=>{
     
 
 return (
-    <motion.div 
+    <div 
     variants={hide ? onClose : onOpen}
     initial="hidden"
     animate="show"
@@ -84,7 +84,7 @@ return (
       </div>
       <br/>
    <Link href={"/abs_nyark/delivery"}><button className='bg-[white] text-[black] mx-[40%] px-[2vw] py-[0.5vw] hover:bg-[orange] hover:text-[white] duration-500 '> CHECKOUT</button></Link>   
-      </motion.div >
+      </div >
   )
 }
 
