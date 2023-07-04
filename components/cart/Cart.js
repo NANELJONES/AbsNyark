@@ -13,13 +13,13 @@ const {totalPrice, clear_local_storage, totalQuantities, cartItems, setshowCart,
 const [hide, setHide] = useState(false)
 
 const onOpen  = {
-  hidden:{ opacity:0, z:-25},
-  show: {opacity:1, y:0}
+  hidden:{ opacity:0, y:-25},
+  show: {opacity:1, y:0, zIndex:10000}
 }
 
 
 const onClose  = {
-  hidden:{ opacity:1, z:10000},
+  hidden:{ opacity:1, y:0},
   show: {opacity:0, y:-25}
 }
 
